@@ -8,7 +8,11 @@ Although I don't have an concrete idea yet, I imagine it would be similar to tit
 I plan on learning and using python for this project. This project is mostly an introductory project for me to learn python.
 
 Resources I'm checking out:
+
 https://www.fullstackpython.com/
+
 https://python-guide.readthedocs.io/en/latest/
+
 http://www.openbookproject.net/thinkcs/python/english3e/index.html
+
 https://automatetheboringstuff.com/#toc
