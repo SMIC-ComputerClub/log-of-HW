@@ -16,3 +16,11 @@ https://python-guide.readthedocs.io/en/latest/
 http://www.openbookproject.net/thinkcs/python/english3e/index.html
 
 https://automatetheboringstuff.com/#toc
+
+
+Week 1
+
+Read through chapters 0-1 of Automate the Boring Stuff with Python
+
+Learned: Operators, variable types, print(), input(), len(), str()/int()/float()
+
