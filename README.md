@@ -24,3 +24,4 @@ Read through chapters 0-1 of Automate the Boring Stuff with Python
 
 Learned: Operators, variable types, print(), input(), len(), str()/int()/float()
 
+Read through chapter 1 of Dive Into Python.
