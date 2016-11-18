@@ -27,3 +27,10 @@ Learned: Operators, variable types, print(), input(), len(), str()/int()/float()
 Read through chapter 1 of Dive Into Python.
 
 Learned: Function declaration, docstring, 
+
+
+Week 2
+
+Read through chapter 2 of Dive Into Python.
+
+Learned: numerous data types in python 3, type( ), isinstance( , ), numerical operators, lists, append(), extend(), insert(), count(), index(), del, remove(), pop(), tuples, 
