@@ -34,3 +34,5 @@ Week 2
 Read through chapter 2 of Dive Into Python.
 
 Learned: numerous data types in python 3, type( ), isinstance( , ), numerical operators, lists, append(), extend(), insert(), count(), index(), del, remove(), pop(), tuples, 
+
+
