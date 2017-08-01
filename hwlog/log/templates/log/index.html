@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
 
-<head>
-  <title>log(HW)</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'log/style.css' %}" />
-</head>
-
-<body>
-  <div class = 'main'>
-    <img src='static/log/images/logo.svg' width = 300px />
-    <h1>Welcome!</h1>
+{% block content %}
+  <div class="index-main">
+    <div class="section">
+      <p>Index Page</p>
+    </div>
   </div>
-</body>
-
-</html>
+{% endblock content %}
