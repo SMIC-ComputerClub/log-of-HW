@@ -21,7 +21,8 @@ from log import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^login/$', auth_views.login, name = 'login'),
-    url(r'^logout/$', auth_views.logout, name = 'logout'),
+    url(r'^logout/$', auth_views.logout,{'next_page': '/'}, name = 'logout'),
+    url(r'^signup/$', views.signup, name= 'signup'),
     url(r'^log/', include('log.urls')),
     url(r'^admin/', admin.site.urls),
 ]
