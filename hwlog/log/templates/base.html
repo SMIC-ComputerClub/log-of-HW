@@ -11,7 +11,7 @@
 <body>
   <header>
     {% load static %}
-    <img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/>
+    <a href="{% url 'home' %}"><img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
     <ul class='menu'>
       {% if user.is_authenticated %}
         <li class='hi-message'> Hi {{ user.username }}! </li>
