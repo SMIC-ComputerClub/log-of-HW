@@ -58,7 +58,19 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+}
+.button{
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 300px;
+  height:200px;
+  background-color: #d3d3d3;
+  margin: 50px;
+  font-size: 60px;
 }
 
 @media only screen and (max-width: 400px) {}

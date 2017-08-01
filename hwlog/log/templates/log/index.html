@@ -3,8 +3,14 @@
 
 {% block content %}
   <div class="index-main">
+    {% if user.is_authenticated %}
+
+    {% else %}
     <div class="section">
-      <p>Index Page</p>
+      <div class="button"><a href="{% url 'login' %}"> Login </a></div>
+      <div class="button"><a href="#"> Signup </a></div>
     </div>
+    {% endif %}
+
   </div>
 {% endblock content %}
