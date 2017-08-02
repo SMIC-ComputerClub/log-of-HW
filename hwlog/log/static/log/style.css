@@ -36,7 +36,8 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-      overflow:hidden;
+  overflow:hidden;
+  color:  #d6d6d6
 }
 
 .menu-container {
