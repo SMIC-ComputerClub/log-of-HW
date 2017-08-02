@@ -10,9 +10,8 @@
 </head>
 <body>
   <header>
-    <div class='header-container'>
-      {% load static %}
-      <a href="{% url 'home' %}"><img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
+    <div class='menu-container'>
+      <a href="{% url 'home' %}">{% load static %}<img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
       <ul class='menu'>
         {% if user.is_authenticated %}
           <li class='hi-message'><strong> Hi {{ user.username }}! </strong></li>

@@ -24,11 +24,11 @@ header {
   background: #d3d3d3;
 }
 
-.header-container {
+.menu-container {
   display: flex;
   width: 900px;
   justify-content: space-between;
-  border: 2px solid red;
+  align-items: center;
 }
 
 .hi-message {}
@@ -44,7 +44,6 @@ header {
 
 .menu>li {
   display: inline;
-  border: 1px solid red;
   margin-right: 50px;
 }
 
@@ -52,13 +51,13 @@ header {
   margin-right: 0;
 }
 
-.menu>a:link, .menu>a:visited {
-  color: #5D6063;
+.menu> li > a:link, .menu> li > a:visited {
+  color:  #808080;
   text-decoration: none;
   font-size: 24px;
 }
 
-.menu>a:hover {
+.menu> li >a:hover {
   color: #A9A9A9;
   text-decoration: none;
   font-size: 24px;
