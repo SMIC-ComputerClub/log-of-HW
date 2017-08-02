@@ -4,11 +4,17 @@
 {% block content %}
   <div class="index-main">
     {% if user.is_authenticated %}
-
+      <div> The thingy </div>
     {% else %}
     <div class="section">
-      <div class="button"><a href="{% url 'login' %}"> Login </a></div>
-      <div class="button"><a href="#"> Signup </a></div>
+      <div class="home-boxes">
+        <p>Already have an account? </p>
+        <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
+      </div>
+      <div class="home-boxes">
+        <p> Don't have an account? </p>
+        <a href="{% url 'signup' %}" class="button-link"><div class="button"> Signup </div></a>
+      <div>
     </div>
     {% endif %}
 

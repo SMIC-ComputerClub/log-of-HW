@@ -10,16 +10,17 @@
 </head>
 <body>
   <header>
-    {% load static %}
-    <a href="{% url 'home' %}"><img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
-    <ul class='menu'>
-      {% if user.is_authenticated %}
-        <li class='hi-message'> Hi {{ user.username }}! </li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-      {% else %}
-        <li><a href="#"> Sign up </a></li>
-        <li><a href="{% url 'login' %}">Login</a></li>
-      {% endif %}
+    <div class='menu-container'>
+      <a href="{% url 'home' %}">{% load static %}<img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
+      <ul class='menu'>
+        {% if user.is_authenticated %}
+          <li class='hi-message'><strong> Hi {{ user.username }}! </strong></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'signup' %}"> Sign up </a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
     </div>
   </header>
   <div style='height:90px;'></div>
@@ -27,9 +28,8 @@
     {% block content %}
     {% endblock %}
   </main>
-  <hr>
   <footer>
-    <p> footer </p>
+    <p style="margin-top: 20px;"> Provided to you by the SMIC Computer Club </p>
   </footer>
 </body>
 </html>

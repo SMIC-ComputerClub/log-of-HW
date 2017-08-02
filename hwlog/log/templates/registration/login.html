@@ -3,10 +3,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <div id="content-container" class="container p-none">
+    <div class="content-container"  style="margin-top: 90px">
         <div class="lgn-container col-lg-8">
-            <form id="login-form" method="post" 
-                  >
+            <h1 style="margin-bottom: 25px;"> Login </h1>
+            <form id="login-form" method="post">
                 {% csrf_token %}
                 <table class="table">
                     <tr>
