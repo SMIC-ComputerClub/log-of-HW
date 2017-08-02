@@ -147,6 +147,18 @@ td {
 .btn:hover {
   background-color: #76AEED;
 }
+.form-row {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media only screen and (max-width: 400px) {}
 
 
