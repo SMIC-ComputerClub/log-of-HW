@@ -5,12 +5,11 @@
 }
 
 body {
-  font-size: 18px;
   font-family: sans-serif;
 }
 
 p {
-  font-size: 30px;
+
 }
 
 header {
@@ -21,7 +20,8 @@ header {
   width: 100%;
   height: 70px;
   padding: 10px;
-  background: #d3d3d3;
+  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(50, 50, 50, 0.85);
 }
 footer {
   display: flex;
@@ -29,7 +29,11 @@ footer {
   width: 100%;
   height: 100px;
   padding: 10px;
-  background: #d3d3d3;
+  background: rgb(81,81,81);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+      overflow:hidden;
 }
 
 .menu-container {
@@ -39,7 +43,9 @@ footer {
   align-items: center;
 }
 
-.hi-message {}
+.hi-message {
+  color: #FFFFFF
+}
 
 .header-logo {
   height: 50px;
@@ -60,13 +66,13 @@ footer {
 }
 
 .menu> li > a:link, .menu> li > a:visited {
-  color:  #808080;
+  color:  #d6d6d6;
   text-decoration: none;
   font-size: 24px;
 }
 
 .menu> li >a:hover {
-  color: #A9A9A9;
+  color: #efefef;
   text-decoration: none;
   font-size: 24px;
 }
@@ -101,6 +107,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+.home-boxes > p{
+  font-size: 30px;
 }
 .content-container{
   width:900px;
