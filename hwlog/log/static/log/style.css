@@ -117,16 +117,21 @@ footer {
 }
 .content-container{
   width:900px;
-  height: 700px;
+  height: auto;
   display:flex;
+  margin: 90px;
   margin: 0 auto;
   justify-content: center;
+
 }
 .lgn-container{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 30px;
+  padding: 50px;
+  background-color: lightgrey;
+  border: 2px solid black;
 }
 td {
     padding-bottom: 15px;
@@ -158,6 +163,9 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px;
+  background-color: lightgrey;
+  border: 2px solid black;
 }
 @media only screen and (max-width: 400px) {}
 
