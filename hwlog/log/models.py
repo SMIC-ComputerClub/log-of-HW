@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Profile(models.Model):
+class Setting(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
 
 class Course(models.Model):
     course_name = models.CharField(max_length=50)
-    code = models.CharField(max_length=9, default="*")
+    code = models.CharField(max_length=9, default="")
+    students = models.ManyToManyField(User, related_name='courses_joined',blank=True)
     def __str__(self):
         return self.course_name
     def get_course_code(self):
