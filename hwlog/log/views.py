@@ -6,10 +6,16 @@ from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
+from django.contrib.auth.models import User
+from .models import Course, Period
 
 
 def home(request):
-    return render(request,'log/index.html' )
+    course_list = Course.objects.order_by()[:]
+    context = {
+        'course_list':course_list,
+    }
+    return render(request,'log/index.html', context)
 
 def signup(request):
     if request.method == 'POST':
@@ -24,3 +30,6 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def configure(request):
+    return HttpResponse('<h1>Page not found</h1>')
