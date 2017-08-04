@@ -6,14 +6,20 @@ class Setting(models.Model):
 
 
 class Course(models.Model):
+    def __str__(self):
+        return self.course_name
+    #def get_course_name(self):
+    #    return str(self.course_name)
+    def get_period(self):
+        return str(self.period)
+    def get_course_code(self):
+        return code
     course_name = models.CharField(max_length=50)
+    period = models.IntegerField(default=1) #unused
     code = models.CharField(max_length=9, default="")
     students = models.ManyToManyField(User, related_name='courses_joined',blank=True)
     hw = models.TextField(max_length=500, blank=True)
-    def __str__(self):
-        return self.course_name
-    def get_course_code(self):
-        return code
+
 
 #class Period(models.Model):
 #    time = models.IntegerField()
