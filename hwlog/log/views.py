@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from django.contrib.auth.models import User
-from .models import Course, Period
+from .models import Course
 
 
 def home(request):
