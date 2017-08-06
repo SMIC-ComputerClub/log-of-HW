@@ -6,12 +6,15 @@ from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
+from django.views.generic.edit import FormView
+from braces.views import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import Course
+from .forms import ClassEnrollForm
 
 
 def home(request):
-    course_list = Course.objects.order_by()[:]
+    course_list = Course.objects.all()
     context = {
         'course_list':course_list,
     }
@@ -33,3 +36,14 @@ def signup(request):
 
 def configure(request):
     return HttpResponse('<h1>Page not found</h1>')
+
+class StudentEnrollClassView(LoginRequiredMixin, FormView):
+    course = None
+    form_class = ClassEnrollForm
+
+    def form_valid(self, form):
+        self.course = form.cleaned_data['course']
+        self.course.students.add(self.request.user)
+        return super(StudentEnrollClassView, self).form_valid(form)
+    def get_success_url(self):
+        return render(request,'log/index.html')
