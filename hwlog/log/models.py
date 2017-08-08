@@ -13,7 +13,7 @@ class Course(models.Model):
     def get_period(self):
         return str(self.period)
     def get_course_code(self):
-        return code
+        return self.code
     course_name = models.CharField(max_length=50)
     period = models.IntegerField(default=1) #unused
     code = models.CharField(max_length=9, default="")

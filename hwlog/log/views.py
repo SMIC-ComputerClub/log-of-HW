@@ -35,15 +35,12 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 def configure(request):
-    return HttpResponse('<h1>Page not found</h1>')
-
-class StudentEnrollClassView(LoginRequiredMixin, FormView):
-    course = None
-    form_class = ClassEnrollForm
-
-    def form_valid(self, form):
-        self.course = form.cleaned_data['course']
-        self.course.students.add(self.request.user)
-        return super(StudentEnrollClassView, self).form_valid(form)
-    def get_success_url(self):
-        return render(request,'log/index.html')
+    if request.method == 'POST':
+        form = ClassEnrollForm(request.POST)
+        if form.is_valid():
+            course_1 = form.cleaned_data['course_1']
+            course_1.students.add(request.user)
+            return redirect('home')
+    else:
+        form = ClassEnrollForm()
+    return render(request, 'configure.html', {'form': form})

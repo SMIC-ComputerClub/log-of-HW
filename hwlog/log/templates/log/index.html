@@ -7,6 +7,7 @@
       {% if user.is_configured == True %}
         <div> The thingy </div>
       {% else %}
+        <a href = "{% url 'configure' %}">Please select your classes first!</a>
       <!--
         <div class="content-container">
           <div class="form-container">
