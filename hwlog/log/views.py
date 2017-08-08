@@ -7,7 +7,6 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from django.views.generic.edit import FormView
-from braces.views import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import Course
 from .forms import ClassEnrollForm
