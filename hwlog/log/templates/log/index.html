@@ -5,91 +5,20 @@
   <div class="index-main">
     {% if user.is_authenticated %}
       {% if user.courses_joined.count > 0 %}
-        <table>
+        <table class="hw-table">
           {% for course in user.courses_joined.all %}
+            {% if course.course_name == "None" %}
+            {% else %}
             <tr>
-              <th> Course name </th>
-              <th> HW </th>
+              <td> {{course.course_name}} </td>
+              <td> {{course.hw}} </td>
             </tr>
+            {% endif %}
           {% endfor %}
         </table>
       {% else %}
         <a href = "{% url 'configure' %}">Please select your classes first!</a>
-      <!--
-        <div class="content-container">
-          <div class="form-container">
-            <h1> Choose your classes <h1/>
-            <form action="{% url 'configure' %}" method="post">
-              {% csrf_token %}
-              <div class='form-row'>
-                <label for='class-select1'>Class 1:</label>
-                <select id='class-select1' name='class1'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select2'>Class 2:</label>
-                <select id='class-select2' name='class2'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select3'>Class 3:</label>
-                <select id='class-select3' name='class3'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select4'>Class 4:</label>
-                <select id='class-select4' name='class4'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select5'>Class 5:</label>
-                <select id='class-select5' name='class5'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select6'>Class 6:</label>
-                <select id='class-select6' name='class6'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <div class='form-row'>
-                <label for='class-select7'>Class 7:</label>
-                <select id='class-select7' name='class7'>
-                  <option value=''>None</option>
-                  {% for course in course_list %}
-                  <option value='{{ course.id }}'>{{course.course_name}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-              <input type="submit" value="Add" class="btn" />
-            </form>
-          </div>
-        </div>
       {% endif %}
-    -->
     {% else %}
     <div class="section">
       <div class="home-boxes">

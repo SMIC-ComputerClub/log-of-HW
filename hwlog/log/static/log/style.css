@@ -40,6 +40,18 @@ footer {
   color:  #d6d6d6
 }
 
+.hw-table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.hw-table, .hw-table > th, .hw-table > td {
+  border: 1px solid black;
+}
+.hw-table > td{
+  padding: 10px;
+}
+
 .menu-container {
   display: flex;
   width: 900px;
