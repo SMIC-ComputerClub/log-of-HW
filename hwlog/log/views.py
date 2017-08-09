@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate, update_session_auth_hash
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.views import generic
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
@@ -17,7 +17,7 @@ def home(request):
     context = {
         'course_list':course_list,
     }
-    return render(request,'log/index.html', context)
+    return render(request,'index.html', context)
 
 def signup(request):
     if request.method == 'POST':
@@ -32,6 +32,17 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            return redirect('home')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {'form': form})
 
 def configure(request):
     if request.method == 'POST':
