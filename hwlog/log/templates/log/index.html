@@ -4,7 +4,7 @@
 {% block content %}
   <div class="index-main">
     {% if user.is_authenticated %}
-      {% if user.is_configured == True %}
+      {% if user.courses_joined %}
         <div> The thingy </div>
       {% else %}
         <a href = "{% url 'configure' %}">Please select your classes first!</a>
