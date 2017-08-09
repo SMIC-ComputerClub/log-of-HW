@@ -10,8 +10,8 @@
             {% if course.course_name == "None" %}
             {% else %}
             <tr>
-              <td> {{course.course_name}} </td>
-              <td> {{course.hw}} </td>
+              <td class="course-name-box"> {{course.course_name}} </td>
+              <td class="hw-box"> {{course.hw}} </td>
             </tr>
             {% endif %}
           {% endfor %}
