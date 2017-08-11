@@ -11,4 +11,4 @@ class ClassEnrollForm(forms.Form):
     course_7 = forms.ModelChoiceField(queryset=Course.objects.all())
 
 class ChangeHWForm(forms.Form):
-    hw = forms.CharField(widget=forms.Textarea)
+    hw = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '200'}))

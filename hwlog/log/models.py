@@ -18,7 +18,7 @@ class Course(models.Model):
     period = models.IntegerField(default=1) #unused
     code = models.CharField(max_length=9, default="")
     students = models.ManyToManyField(User, related_name='courses_joined', blank=True)
-    hw = models.TextField(max_length=500, blank=True)
+    hw = models.TextField(max_length=200, blank=True)
 
 
 #class Period(models.Model):
