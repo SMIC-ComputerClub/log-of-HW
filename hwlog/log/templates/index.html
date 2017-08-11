@@ -10,7 +10,7 @@
             {% if course.course_name == "None" %}
             {% else %}
             <tr>
-              <td class="course-name-box"> {{course.course_name}} </td>
+              <td class="course-name-box"><a href="{% url 'log:detail' course.id %}" > {{course.course_name}} <a></td>
               <td class="hw-box"> {{course.hw}} </td>
             </tr>
             {% endif %}

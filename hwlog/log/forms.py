@@ -9,3 +9,6 @@ class ClassEnrollForm(forms.Form):
     course_5 = forms.ModelChoiceField(queryset=Course.objects.all())
     course_6 = forms.ModelChoiceField(queryset=Course.objects.all())
     course_7 = forms.ModelChoiceField(queryset=Course.objects.all())
+
+class ChangeHWForm(forms.Form):
+    hw = forms.CharField(widget=forms.Textarea)

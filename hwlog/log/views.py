@@ -9,7 +9,7 @@ from django.views import generic
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
 from .models import Course
-from .forms import ClassEnrollForm
+from .forms import ClassEnrollForm, ChangeHWForm
 
 
 def home(request):
@@ -66,3 +66,17 @@ def configure(request):
     else:
         form = ClassEnrollForm()
     return render(request, 'configure.html', {'form': form})
+
+def detail(request, course_id): #page to edit hw
+    course = get_object_or_404(Course, pk=course_id)
+    #add form so students can fill out hw
+    if request.method == 'POST':
+        form = ChangeHWForm(request.POST)
+        if form.is_valid():
+            homework = form.cleaned_data['hw']
+            course.hw = homework
+            course.save()
+            return redirect('home')
+    else:
+        form = ChangeHWForm({'hw':course.hw})
+    return render(request, 'detail.html', {'form': form, 'course': course})
