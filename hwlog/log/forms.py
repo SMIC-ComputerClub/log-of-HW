@@ -1,7 +1,7 @@
 from django import forms
 from .models import Course
 
-class ClassEnrollForm(forms.Form):
+class ClassEnrollForm(forms.Form): #form to edit course settings
     course_1 = forms.ModelChoiceField(queryset=Course.objects.all())
     course_2 = forms.ModelChoiceField(queryset=Course.objects.all())
     course_3 = forms.ModelChoiceField(queryset=Course.objects.all())
@@ -10,5 +10,5 @@ class ClassEnrollForm(forms.Form):
     course_6 = forms.ModelChoiceField(queryset=Course.objects.all())
     course_7 = forms.ModelChoiceField(queryset=Course.objects.all())
 
-class ChangeHWForm(forms.Form):
+class ChangeHWForm(forms.Form): #form to edit hw of a class
     hw = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '200'}))

@@ -12,14 +12,10 @@ from .models import Course
 from .forms import ClassEnrollForm, ChangeHWForm
 
 
-def home(request):
-    course_list = Course.objects.all()
-    context = {
-        'course_list':course_list,
-    }
-    return render(request,'index.html', context)
+def home(request): #index page
+    return render(request,'index.html')
 
-def signup(request):
+def signup(request): #signup page
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -33,7 +29,7 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
-def change_password(request):
+def change_password(request): #change password page
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -44,8 +40,8 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
     return render(request, 'change_password.html', {'form': form})
 
-def configure(request):
-    if request.method == 'POST':
+def configure(request): #settings page, might be lots of bugs
+    if request.method == 'POST':        #what happens if user adds more than 7 courses
         form = ClassEnrollForm(request.POST)
         if form.is_valid():
             course_1 = form.cleaned_data['course_1']
@@ -64,7 +60,7 @@ def configure(request):
             course_7.students.add(request.user)
             return redirect('home')
     else:
-        form = ClassEnrollForm()
+        form = ClassEnrollForm() #still have to add a way to prepopulate the form with user's exising settings
     return render(request, 'configure.html', {'form': form})
 
 def detail(request, course_id): #page to edit hw
