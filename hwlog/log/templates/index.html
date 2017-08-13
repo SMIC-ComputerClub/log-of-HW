@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+  <div class="index-main">
+    {% if user.is_authenticated %}
+      {% if user.courses_joined.count > 0 %}
+        <table class="hw-table">
+          {% for course in user.courses_joined.all %}
+            {% if course.course_name == "None" %}
+            {% else %}
+            <tr>
+              <td class="course-name-box"><a href="{% url 'log:detail' course.id %}" > {{course.course_name}} <a></td>
+              <td class="hw-box"> {{course.hw}} </td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% else %}
+        <a href = "{% url 'configure' %}">Please select your classes first!</a>
+      {% endif %}
+    {% else %}
+    <div class="section">
+      <div class="home-boxes">
+        <p>Already have an account? </p>
+        <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
+      </div>
+      <div class="home-boxes">
+        <p> Don't have an account? </p>
+        <a href="{% url 'signup' %}" class="button-link"><div class="button"> Signup </div></a>
+      <div>
+    </div>
+    {% endif %}
+  </div>
+{% endblock content %}

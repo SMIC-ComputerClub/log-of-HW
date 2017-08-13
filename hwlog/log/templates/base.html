@@ -15,6 +15,8 @@
       <ul class='menu'>
         {% if user.is_authenticated %}
           <li class='hi-message'><strong> Hi {{ user.username }}! </strong></li>
+          <li><a href ="{% url 'configure' %}"> Settings </a></li>
+          <li><a href ="{% url 'change_password' %}"> Change password </a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
           <li><a href="{% url 'signup' %}"> Sign up </a></li>
