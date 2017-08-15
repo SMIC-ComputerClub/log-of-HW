@@ -2,14 +2,20 @@
 {% block title %}Edit HW{% endblock %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-    <h2>{{course.course_name}}</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Save changes</button>
-    </form>
-  {% else %}
-    <a href="{% url 'login' %}">Login before you can edit! </a>
-  {% endif %}
+  <div class="content-container">
+    <div class="lgn-container">
+      {% if user.is_authenticated %}
+        <h1 class="content-heading">{{course.course_name}}</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-row">
+            {{ form.hw }}
+          </div>
+          <button type="submit" class="btn">Save changes</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Login before you can edit! </a>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

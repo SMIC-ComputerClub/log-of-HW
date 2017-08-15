@@ -5,17 +5,37 @@
   <div class="index-main">
     {% if user.is_authenticated %}
       {% if user.courses_joined.count > 0 %}
+      <!--
         <table class="hw-table">
           {% for course in user.courses_joined.all %}
             {% if course.course_name == "None" %}
             {% else %}
-            <tr>
-              <td class="course-name-box"><a href="{% url 'log:detail' course.id %}" > {{course.course_name}} <a></td>
-              <td class="hw-box"> {{course.hw}} </td>
-            </tr>
+              <tr>
+                <td class="course-name-box"> {{course.course_name}}
+                  <div class="icon-flex">
+                    <a href="{% url 'log:detail' course.id %}">{% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class='edit-icon'/></a>
+                  </div>
+                </td>
+                <td class="hw-box"> {{course.hw}} </td>
+              </tr>
             {% endif %}
           {% endfor %}
         </table>
+      -->
+        <div class="log-container">
+          {% for course in user.courses_joined.all %}
+            {% if course.course_name == "None" %}
+            {% else %}
+              <div class="log-container-row">
+                <div class="course-name-box"> {{course.course_name}}
+                  <a href="{% url 'log:detail' course.id %}">
+                    {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon"/></a>
+                </div>
+                <div class="hw-box"> {{course.hw}}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       {% else %}
         <a href = "{% url 'configure' %}">Please select your classes first!</a>
       {% endif %}

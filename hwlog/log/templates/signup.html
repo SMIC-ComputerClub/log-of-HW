@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% block title %}Sign up{% endblock %}
 
 {% block content %}
   <div class="content-container">
     <div class = "lgn-container">
-      <h1 style="margin-bottom:25px;">Sign up</h1>
+      <h1 class="content-heading">Sign up</h1>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
