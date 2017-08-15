@@ -6,4 +6,5 @@ Often times I do not have enough time to jot down the homework as I hurry to the
 
 Front end: HTML/CSS
 
-Back end: Python Django 1.11.3
+Back end: Python 3.6.2 + Django 1.11.3
+Packages: django-widget-tweaks 1.4.1
