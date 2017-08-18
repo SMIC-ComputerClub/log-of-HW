@@ -44,6 +44,7 @@ def configure(request): #settings page, might be lots of bugs
     if request.method == 'POST':        #what happens if user adds more than 7 courses
         form = ClassEnrollForm(request.POST)
         if form.is_valid():
+            request.user.courses_joined.clear()
             course_1 = form.cleaned_data['course_1']
             course_1.students.add(request.user)
             course_2 = form.cleaned_data['course_2']

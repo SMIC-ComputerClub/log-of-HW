@@ -23,7 +23,7 @@ header {
   width: 100%;
   height: 70px;
   padding: 10px;
-  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgb(50, 50, 50); /* Fallback for older browsers without RGBA-support */
   background: rgba(50, 50, 50, 0.85);
 }
 footer {
