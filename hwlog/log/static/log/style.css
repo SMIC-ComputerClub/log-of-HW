@@ -58,6 +58,7 @@ footer {
   justify-content: center;
   text-align: center;
   align-items: center;
+  font-size: 1.1em;
   color: white;
   background-color: #515151;
 }
@@ -73,18 +74,20 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .hi-message {
   color: #FFFFFF
+}
+.hi-message,.menu-text{
+    font-size:1em;
 }
 
 .header-logo {
   height: 50px;
-}
-
-.menu {
-  display: flex;
-  justify-content: space-between;
 }
 
 .menu>li {
