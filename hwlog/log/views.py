@@ -10,8 +10,8 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
 from .models import Course
 from .forms import ClassEnrollForm, ChangeHWForm
-
-
+from .models import Homework
+from django.utils import timezone
 def home(request): #index page
     return render(request,'index.html')
 
@@ -66,13 +66,18 @@ def configure(request): #settings page, might be lots of bugs
 
 def detail(request, course_id): #page to edit hw
     course = get_object_or_404(Course, pk=course_id)
+    #homework = get_object_or_404(Homework, pk=homework_id)
     #add form so students can fill out hw
     if request.method == 'POST':
         form = ChangeHWForm(request.POST)
         if form.is_valid():
-            homework = form.cleaned_data['hw']
-            course.hw = homework
-            course.save()
+            #new_hw = Homework()
+            #new_hw.hw_text = form.cleaned_data['hw_text']
+            #new_hw.pub_date =  timezone.now()
+            #new_hw.save()
+            course.homework_set.create(hw_text=form.cleaned_data['hw_text'], pub_date=timezone.now())
+
+
             return redirect('home')
     else:
         form = ChangeHWForm({'hw':course.hw})
