@@ -17,5 +17,11 @@
         <a href="{% url 'login' %}">Login before you can edit! </a>
       {% endif %}
     </div>
+    <h2> Previous Homeworks </h2>
+    {% for homework in latest_hw_list %}
+    <div class="extra-hw-box">
+      <p>{{homework.hw_text}}</p>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}

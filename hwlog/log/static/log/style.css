@@ -11,10 +11,6 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
-p {
-
-}
-
 header {
   position: fixed;
   display: flex;
@@ -149,9 +145,11 @@ footer {
   width:900px;
   height: auto;
   display:flex;
+  flex-direction: column;
   margin: 90px;
   margin: 0 auto;
   justify-content: center;
+  align-items: center;
 
 }
 .content-heading{
@@ -208,6 +206,13 @@ td {
 }
 .icon-flex{
   display:flex;
+}
+.extra-hw-box{
+  display: flex;
+  width: 65%;
+  padding: 15px;
+  background-color: #e8e8e8;
+  margin-bottom: 15px;
 }
 @media only screen and (max-width: 400px) {}
 

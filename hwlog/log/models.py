@@ -16,11 +16,13 @@ class Course(models.Model):
         return str(self.period)
     def get_course_code(self):
         return self.code
+    def get_latest_hw(self):
+        latest_hw = self.homework_set.latest('pub_date')
+        return latest_hw
     course_name = models.CharField(max_length=50)
     period = models.IntegerField(default=1) #unused
     code = models.CharField(max_length=9, default="")
     students = models.ManyToManyField(User, related_name='courses_joined', blank=True) #creates relationship between the user and course
-    hw = models.TextField(max_length=200, blank=True)
 
 class Homework(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE,null=True, blank=True)

@@ -31,7 +31,7 @@
                   <a href="{% url 'log:detail' course.id %}">
                     {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon"/></a>
                 </div>
-                <div class="hw-box"> {{homework.hw_text}}</div>
+                <div class="hw-box"> {{course.get_latest_hw}}</div>
               </div>
             {% endif %}
           {% endfor %}
