@@ -18,7 +18,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 100px;
   padding: 10px;
   background: rgb(50, 50, 50); /* Fallback for older browsers without RGBA-support */
   background: rgba(50, 50, 50, 0.85);
@@ -51,11 +51,11 @@ footer {
   display:flex;
   flex-direction: row;
   width:100%;
-  height: 100px;
+  height: 110px;
   margin-bottom: 5px;
 }
 .course-name-box{
-  width: 35%;
+  width: 40%;
   padding: 15px;
   display: flex;
   position: relative;
@@ -74,6 +74,7 @@ footer {
 }
 .menu-container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -110,7 +111,7 @@ footer {
   color: #FFFFFF
 }
 .hi-message,.menu-text{
-  font-size: 1em;
+  font-size: 0.93em;
 }
 
 .index-main {
@@ -237,13 +238,16 @@ td {
   .log-container{
     width: 961px;
   }
-  .hi-message{
-    font-size: 1.2em;
-  }
-  .menu-text{
+  .hi-message,.menu-text{
     font-size: 1.2em;
   }
   .course-name-box{
     font-size: 1.1em;
+  }
+  .menu-container {
+    flex-direction: row;
+  }
+  header {
+    height: 60px;
   }
 }
