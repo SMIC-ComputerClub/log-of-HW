@@ -4,40 +4,48 @@
   box-sizing: border-box;
 }
 html {
-    position: relative;
-    min-height: 100%;
+
 }
 body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
+html,body{
+  height: 100%;
+}
 
 header {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding: 10px;
   background: rgb(50, 50, 50); /* Fallback for older browsers without RGBA-support */
   background: rgba(50, 50, 50, 0.85);
 }
 footer {
-  display: flex;
-  justify-content: center;
   width: 100%;
-  height: 100px;
+  height: 80px;
   padding: 10px;
   background: rgb(81,81,81);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  overflow:hidden;
-  color:  #d6d6d6
+  margin-top: 20px;
 }
+.push{
+  height: 80px;
+}
+.wrapper{
+  min-height: 100%;
+  margin: 0 auto -80px;
+}
+.footer-container{
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  color:  #d6d6d6;
 
+}
 .log-container{
-  width: 900px;
+  width: 100%;
 }
 .log-container-row{
   display:flex;
@@ -54,7 +62,7 @@ footer {
   justify-content: center;
   text-align: center;
   align-items: center;
-  font-size: 1.1em;
+  font-size: 0.95em;
   color: white;
   background-color: #515151;
 }
@@ -66,7 +74,7 @@ footer {
 }
 .menu-container {
   display: flex;
-  width: 900px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -75,15 +83,9 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-.hi-message {
-  color: #FFFFFF
-}
-.hi-message,.menu-text{
-    font-size:1em;
-}
 
 .header-logo {
-  height: 50px;
+  height: 40px;
 }
 
 .menu>li {
@@ -98,13 +100,17 @@ footer {
 .menu> li > a:link, .menu> li > a:visited {
   color:  #d6d6d6;
   text-decoration: none;
-  font-size: 24px;
 }
 
 .menu> li >a:hover {
   color: #efefef;
   text-decoration: none;
-  font-size: 24px;
+}
+.hi-message {
+  color: #FFFFFF
+}
+.hi-message,.menu-text{
+  font-size: 1em;
 }
 
 .index-main {
@@ -142,7 +148,7 @@ footer {
   font-size: 30px;
 }
 .content-container{
-  width:900px;
+  width: 100%;
   height: auto;
   display:flex;
   flex-direction: column;
@@ -202,7 +208,7 @@ td {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 8%;
+  height: 17%;
 }
 .icon-flex{
   display:flex;
@@ -224,4 +230,20 @@ td {
 
 /* Desktop Styles */
 
-@media only screen and (min-width: 961px) {}
+@media only screen and (min-width: 961px) {
+  .menu-container {
+    width: 961px;
+  }
+  .log-container{
+    width: 961px;
+  }
+  .hi-message{
+    font-size: 1.2em;
+  }
+  .menu-text{
+    font-size: 1.2em;
+  }
+  .course-name-box{
+    font-size: 1.1em;
+  }
+}
