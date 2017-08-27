@@ -14,7 +14,6 @@
         <a href="{% url 'home' %}">{% load static %}<img src= "{% static 'log/images/logo.svg' %}" class='header-logo'/></a>
         <ul class='menu'>
           {% if user.is_authenticated %}
-            <li class='hi-message'><strong> Hi {{ user.username }}! </strong></li>
             <li class='hi-message'><strong>{{ user.username }}</strong></li>
             <li><a href ="{% url 'configure' %}" class='menu-text'> Settings </a></li>
             <li><a href ="{% url 'change_password' %}" class='menu-text'> Change password </a></li>

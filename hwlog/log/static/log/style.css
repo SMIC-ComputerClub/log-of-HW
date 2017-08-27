@@ -142,8 +142,12 @@ footer {
 }
 .home-boxes{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+}
+.box-label{
+  display: none;
 }
 .home-boxes > p{
   font-size: 30px;
@@ -249,5 +253,11 @@ td {
   }
   header {
     height: 60px;
+  }
+  .home-boxes{
+    flex-direction: row;
+  }
+  .box-label{
+    display: block;
   }
 }
