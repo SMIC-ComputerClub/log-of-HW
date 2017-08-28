@@ -89,7 +89,7 @@ footer {
 .menu {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -98,7 +98,6 @@ footer {
 }
 
 .menu>li {
-  margin:0 3%;
   display: inline;
   text-align: center;
 }
@@ -225,10 +224,17 @@ td {
 }
 .extra-hw-box{
   display: flex;
-  width: 65%;
+  width: 90%;
   padding: 15px;
   background-color: #e8e8e8;
   margin-bottom: 15px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 @media only screen and (max-width: 400px) {}
 
@@ -268,13 +274,12 @@ td {
   .log-container-row{
     height: 110px;
   }
-  .menu>li {
-    margin-right: 1.5em;
-  }
-  .menu>li:last-of-type {
-    margin-right: 0;
-  }
+
   .menu {
     width: 550px;
+    justify-content: space-between;
+  }
+  .extra-hw-box{
+    width: 60%;
   }
 }
