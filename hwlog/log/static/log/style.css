@@ -51,7 +51,7 @@ footer {
   display:flex;
   flex-direction: row;
   width:100%;
-  height: 110px;
+  height: 150px;
   margin-bottom: 5px;
 }
 .course-name-box{
@@ -71,6 +71,13 @@ footer {
   display: flex;
   padding: 15px;
   background-color: #e8e8e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 .menu-container {
   display: flex;
@@ -80,6 +87,7 @@ footer {
   align-items: center;
 }
 .menu {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,12 +98,9 @@ footer {
 }
 
 .menu>li {
+  margin:0 3%;
   display: inline;
-  margin-right: 50px;
-}
-
-.menu>li:last-of-type {
-  margin-right: 0;
+  text-align: center;
 }
 
 .menu> li > a:link, .menu> li > a:visited {
@@ -259,5 +264,17 @@ td {
   }
   .box-label{
     display: block;
+  }
+  .log-container-row{
+    height: 110px;
+  }
+  .menu>li {
+    margin-right: 1.5em;
+  }
+  .menu>li:last-of-type {
+    margin-right: 0;
+  }
+  .menu {
+    width: 550px;
   }
 }
