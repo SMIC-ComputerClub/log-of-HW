@@ -274,12 +274,17 @@ td {
   .log-container-row{
     height: 110px;
   }
-
   .menu {
     width: 550px;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   .extra-hw-box{
     width: 60%;
+  }
+  .menu>li {
+    margin-right: 50px;
+  }
+  .menu>li:last-of-type {
+    margin-right: 0px;
   }
 }
