@@ -61,34 +61,37 @@ def configure(request): #settings page, might be lots of bugs
             course_7.students.add(request.user)
             return redirect('home')
     else:
+        user_courses = request.user.courses_joined.all()
+        no_course = Course.objects.get(course_name='None')
+
         try:                                                        #extremely inefficient i think
-            user_class_1 = request.user.courses_joined.all()[0]
+            user_class_1 = user_courses[0]
         except IndexError:
-            user_class_1 = Course.objects.get(course_name='None')
+            user_class_1 = no_course
         try:
-            user_class_2 = request.user.courses_joined.all()[1]
+            user_class_2 = user_courses[1]
         except IndexError:
-            user_class_2 = Course.objects.get(course_name='None')
+            user_class_2 = no_course
         try:
-            user_class_3 = request.user.courses_joined.all()[2]
+            user_class_3 = user_courses[2]
         except IndexError:
-            user_class_3 = Course.objects.get(course_name='None')
+            user_class_3 = no_course
         try:
-            user_class_4 = request.user.courses_joined.all()[3]
+            user_class_4 =user_courses[3]
         except IndexError:
-            user_class_4 = Course.objects.get(course_name='None')
+            user_class_4 = no_course
         try:
-            user_class_5 = request.user.courses_joined.all()[4]
+            user_class_5 = user_courses[4]
         except IndexError:
-            user_class_5 = Course.objects.get(course_name='None')
+            user_class_5 = no_course
         try:
-            user_class_6 = request.user.courses_joined.all()[5]
+            user_class_6 = user_courses[5]
         except IndexError:
-            user_class_6 = Course.objects.get(course_name='None')
+            user_class_6 = no_course
         try:
-            user_class_7 = request.user.courses_joined.all()[6]
+            user_class_7 = user_courses[6]
         except IndexError:
-            user_class_7 = Course.objects.get(course_name='None')
+            user_class_7 = no_course
 
         form = ClassEnrollForm(initial={'course_1': user_class_1, #prepopulating with user's settings
                                         'course_2': user_class_2,

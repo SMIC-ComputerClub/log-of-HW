@@ -4,6 +4,9 @@
 
 {% block content %}
     <div class="content-container">
+      {% if user.is_authenticated %}
+        <h1>Logout first before you login again!</h1>
+      {% else %}
         <div class="lgn-container col-lg-8">
             <h1 class="content-heading"> Login </h1>
             <form id="login-form" method="post">
@@ -32,5 +35,6 @@
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>
         </div>
+      {% endif %}
     </div>
 {% endblock content %}
