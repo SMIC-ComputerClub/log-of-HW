@@ -16,12 +16,12 @@
         <ul class='menu'>
           {% if user.is_authenticated %}
             <li class='hi-message'><strong>{{ user.username }}</strong></li>
-            <li><a href ="{% url 'configure' %}" class='menu-text'> Settings </a></li>
-            <li><a href ="{% url 'change_password' %}" class='menu-text'> Change password </a></li>
-            <li><a href="{% url 'logout' %}" class='menu-text'>Logout</a></li>
+            <li class='menu-text'><a href ="{% url 'configure' %}"> Settings </a></li>
+            <li class='menu-text'><a href ="{% url 'change_password' %}"> Change password </a></li>
+            <li class='menu-text'><a href="{% url 'logout' %}">Logout</a></li>
           {% else %}
-            <li><a href="{% url 'signup' %}" class='menu-text'> Sign up </a></li>
-            <li><a href="{% url 'login' %}" class='menu-text'>Login</a></li>
+            <li class='menu-text'><a href="{% url 'signup' %}"> Sign up </a></li>
+            <li class='menu-text'><a href="{% url 'login' %}">Login</a></li>
           {% endif %}
         </ul>
       </div>

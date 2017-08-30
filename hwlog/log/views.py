@@ -61,7 +61,43 @@ def configure(request): #settings page, might be lots of bugs
             course_7.students.add(request.user)
             return redirect('home')
     else:
-        form = ClassEnrollForm() #still have to add a way to prepopulate the form with user's exising settings
+        try:                                                        #extremely inefficient i think
+            user_class_1 = request.user.courses_joined.all()[0]
+        except IndexError:
+            user_class_1 = Course.objects.get(course_name='None')
+        try:
+            user_class_2 = request.user.courses_joined.all()[1]
+        except IndexError:
+            user_class_2 = Course.objects.get(course_name='None')
+        try:
+            user_class_3 = request.user.courses_joined.all()[2]
+        except IndexError:
+            user_class_3 = Course.objects.get(course_name='None')
+        try:
+            user_class_4 = request.user.courses_joined.all()[3]
+        except IndexError:
+            user_class_4 = Course.objects.get(course_name='None')
+        try:
+            user_class_5 = request.user.courses_joined.all()[4]
+        except IndexError:
+            user_class_5 = Course.objects.get(course_name='None')
+        try:
+            user_class_6 = request.user.courses_joined.all()[5]
+        except IndexError:
+            user_class_6 = Course.objects.get(course_name='None')
+        try:
+            user_class_7 = request.user.courses_joined.all()[6]
+        except IndexError:
+            user_class_7 = Course.objects.get(course_name='None')
+
+        form = ClassEnrollForm(initial={'course_1': user_class_1, #prepopulating with user's settings
+                                        'course_2': user_class_2,
+                                        'course_3': user_class_3,
+                                        'course_4': user_class_4,
+                                        'course_5': user_class_5,
+                                        'course_6': user_class_6,
+                                        'course_7': user_class_7,
+                                        })
     return render(request, 'configure.html', {'form': form})
 
 def detail(request, course_id): #page to edit hw

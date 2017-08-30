@@ -97,7 +97,7 @@ footer {
   height: 40px;
 }
 
-.menu>li {
+.menu> .menu-text {
   display: inline;
   text-align: center;
 }
@@ -111,13 +111,13 @@ footer {
   color: #efefef;
   text-decoration: none;
 }
-.hi-message {
-  color: #FFFFFF
-}
-.hi-message,.menu-text{
+
+.menu-text{
   font-size: 0.93em;
 }
-
+.hi-message {
+  display: none;
+}
 .index-main {
   display: flex;
   flex-wrap: wrap;
@@ -255,6 +255,10 @@ td {
   }
   .hi-message,.menu-text{
     font-size: 1.2em;
+  }
+  .hi-message{
+    display: inline;
+    color: #FFFFFF;
   }
   .course-name-box{
     font-size: 1.1em;
