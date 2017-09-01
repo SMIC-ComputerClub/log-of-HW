@@ -105,18 +105,10 @@ def configure(request): #settings page, might be lots of bugs
 
 def detail(request, course_id): #page to edit hw
     course = get_object_or_404(Course, pk=course_id)
-    #homework = get_object_or_404(Homework, pk=homework_id)
-    #add form so students can fill out hw
     if request.method == 'POST':
         form = ChangeHWForm(request.POST)
         if form.is_valid():
-            #new_hw = Homework()
-            #new_hw.hw_text = form.cleaned_data['hw_text']
-            #new_hw.pub_date =  timezone.now()
-            #new_hw.save()
             course.homework_set.create(hw_text=form.cleaned_data['hw_text'], pub_date=timezone.now())
-
-
             return redirect('home')
     else:
         form = ChangeHWForm({'hw':course.get_latest_hw})
