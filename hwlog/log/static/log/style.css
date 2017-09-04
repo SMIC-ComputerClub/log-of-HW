@@ -7,13 +7,13 @@ html {
 
 }
 body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Segoe UI", "Arial", sans-serif;
 }
 html,body{
   height: 100%;
 }
 main{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 header {
   display: flex;
@@ -22,22 +22,21 @@ header {
   width: 100%;
   height: 100px;
   padding: 10px;
-  background: rgb(50, 50, 50); /* Fallback for older browsers without RGBA-support */
-  background: rgba(50, 50, 50, 0.85);
+  background: #404040;
 }
 footer {
   width: 100%;
   height: 200px;
   padding: 10px;
-  background: rgb(81,81,81);
-  margin-top: 20px;
+  background: #404040;
+  margin-top: 10px;
 }
 .push{
-  height: 80px;
+  height: 105px;
 }
 .wrapper{
   min-height: 100%;
-  margin: 0 auto -80px;
+  margin: 0 auto -105px;
 }
 .footer-container{
   display: flex;
@@ -56,6 +55,9 @@ footer {
   height: 160px;
   margin-bottom: 5px;
 }
+.log-container-row:last-of-type{
+  margin-bottom: 0;
+}
 .course-name-box{
   width: 40%;
   padding: 15px;
@@ -66,7 +68,7 @@ footer {
   align-items: center;
   font-size: 0.95em;
   color: white;
-  background-color: #515151;
+  background-color: #505050;
 }
 .hw-box{
   width: inherit;
@@ -122,9 +124,16 @@ footer {
 }
 .index-main {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+}
+.index-top-section{
+  width: 100%;
+  height: 300px;
+  background-color: #505050;
+  margin-top: -20px;
 }
 
 .button {
@@ -154,6 +163,8 @@ footer {
 }
 .box-label{
   display: none;
+  font-weight: bold;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
 }
 .home-boxes > p{
   font-size: 30px;
@@ -285,7 +296,7 @@ td {
     justify-content: flex-end;
   }
   .extra-hw-box{
-    width: 60%;
+    width: 961px;
   }
   .menu>li {
     margin-right: 50px;

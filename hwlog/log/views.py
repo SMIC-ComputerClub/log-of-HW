@@ -12,6 +12,8 @@ from .models import Course
 from .forms import ClassEnrollForm, ChangeHWForm
 from .models import Homework
 from django.utils import timezone
+
+
 def home(request): #index page
     return render(request,'index.html')
 
@@ -62,44 +64,50 @@ def configure(request): #settings page, might be lots of bugs
             return redirect('home')
     else:
         user_courses = request.user.courses_joined.all()
+        user_class = [ ]
         no_course = Course.objects.get(course_name='None')
 
-        try:                                                        #extremely inefficient i think
-            user_class_1 = user_courses[0]
-        except IndexError:
-            user_class_1 = no_course
-        try:
-            user_class_2 = user_courses[1]
-        except IndexError:
-            user_class_2 = no_course
-        try:
-            user_class_3 = user_courses[2]
-        except IndexError:
-            user_class_3 = no_course
-        try:
-            user_class_4 =user_courses[3]
-        except IndexError:
-            user_class_4 = no_course
-        try:
-            user_class_5 = user_courses[4]
-        except IndexError:
-            user_class_5 = no_course
-        try:
-            user_class_6 = user_courses[5]
-        except IndexError:
-            user_class_6 = no_course
-        try:
-            user_class_7 = user_courses[6]
-        except IndexError:
-            user_class_7 = no_course
+    #    try:                                                        #extremely inefficient i think
+    #        user_class_1 = user_courses[0]
+    #    except IndexError:
+    #        user_class_1 = no_course
+    #    try:
+    #        user_class_2 = user_courses[1]
+    #    except IndexError:
+    #        user_class_2 = no_course
+    #    try:
+    #        user_class_3 = user_courses[2]
+    #    except IndexError:
+    #        user_class_3 = no_course
+    #    try:
+    #        user_class_4 =user_courses[3]
+    #    except IndexError:
+    #        user_class_4 = no_course
+    #    try:
+    #        user_class_5 = user_courses[4]
+    #    except IndexError:
+    #        user_class_5 = no_course
+    #    try:
+    #        user_class_6 = user_courses[5]
+    #    except IndexError:
+    #        user_class_6 = no_course
+    #    try:
+    #        user_class_7 = user_courses[6]
+    #    except IndexError:
+    #        user_class_7 = no_course
+        for x in range(0,7):                    #loop to do the same thing as that^
+            try:
+                user_class.append(user_courses[x])
+            except IndexError:
+                user_class.append(no_course)
 
-        form = ClassEnrollForm(initial={'course_1': user_class_1, #prepopulating with user's settings
-                                        'course_2': user_class_2,
-                                        'course_3': user_class_3,
-                                        'course_4': user_class_4,
-                                        'course_5': user_class_5,
-                                        'course_6': user_class_6,
-                                        'course_7': user_class_7,
+        form = ClassEnrollForm(initial={'course_1': user_class[0], #prepopulating with user's settings
+                                        'course_2': user_class[1],
+                                        'course_3': user_class[2],
+                                        'course_4': user_class[3],
+                                        'course_5': user_class[4],
+                                        'course_6': user_class[5],
+                                        'course_7': user_class[6],
                                         })
     return render(request, 'configure.html', {'form': form})
 

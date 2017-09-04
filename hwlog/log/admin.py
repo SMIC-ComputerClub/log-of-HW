@@ -9,7 +9,7 @@ class HomeworkInline(admin.TabularInline):
 
 class CourseAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['course_name','code','students']}),
+        (None,               {'fields': ['course_name','students']}),
     ]
     inlines = [HomeworkInline]
     #filter_horizontal = ['students']
