@@ -47,20 +47,24 @@ def configure(request): #settings page, might be lots of bugs
         form = ClassEnrollForm(request.POST)
         if form.is_valid():
             request.user.courses_joined.clear()
-            course_1 = form.cleaned_data['course_1']
-            course_1.students.add(request.user)
-            course_2 = form.cleaned_data['course_2']
-            course_2.students.add(request.user)
-            course_3 = form.cleaned_data['course_3']
-            course_3.students.add(request.user)
-            course_4 = form.cleaned_data['course_4']
-            course_4.students.add(request.user)
-            course_5 = form.cleaned_data['course_5']
-            course_5.students.add(request.user)
-            course_6 = form.cleaned_data['course_6']
-            course_6.students.add(request.user)
-            course_7 = form.cleaned_data['course_7']
-            course_7.students.add(request.user)
+            coursearray = []
+            for x in range(0,7): #adding students to courses
+                coursearray[x] = form.cleaned_data['course_'+str(x+1)]
+                coursearray[x].students.add(request.user)
+            #course_1 = form.cleaned_data['course_1']
+            #course_1.students.add(request.user)
+            #course_2 = form.cleaned_data['course_2']
+            #course_2.students.add(request.user)
+            #course_3 = form.cleaned_data['course_3']
+            #course_3.students.add(request.user)
+            #course_4 = form.cleaned_data['course_4']
+            #course_4.students.add(request.user)
+            #course_5 = form.cleaned_data['course_5']
+            #course_5.students.add(request.user)
+            #course_6 = form.cleaned_data['course_6']
+            #course_6.students.add(request.user)
+            #course_7 = form.cleaned_data['course_7']
+            #course_7.students.add(request.user)
             return redirect('home')
     else:
         user_courses = request.user.courses_joined.all()
