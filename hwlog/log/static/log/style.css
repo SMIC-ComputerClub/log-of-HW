@@ -232,6 +232,12 @@ td {
   right: 10px;
   height: 17%;
 }
+.warning-icon{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  height: 20%;
+}
 .icon-flex{
   display:flex;
 }

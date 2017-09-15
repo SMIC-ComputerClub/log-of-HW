@@ -12,8 +12,9 @@
               <div class="log-container-row">
                 <div class="course-name-box">
                   {{course.course_name}}
-                  {% if course.get_latest_hw.was_published_today %}
-                  {% endif %}}
+                  {% if course.get_latest_hw.was_published_recently == False %}
+                    {% load static %}<img src="{% static 'log/images/warning.svg' %}" class="warning-icon"/>
+                  {% endif %}
                   <a href="{% url 'log:detail' course.id %}">
                     {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon"/></a>
                 </div>
