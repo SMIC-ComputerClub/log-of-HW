@@ -7,6 +7,7 @@ class Setting(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
+
 class Course(models.Model):
     def __str__(self):
         return self.course_name

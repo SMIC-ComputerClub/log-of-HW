@@ -10,11 +10,14 @@
             {% if course.course_name == "None" %}
             {% else %}
               <div class="log-container-row">
-                <div class="course-name-box"> {{course.course_name}}
+                <div class="course-name-box">
+                  {{course.course_name}}
+                  {% if course.get_latest_hw.was_published_today %}
+                  {% endif %}}
                   <a href="{% url 'log:detail' course.id %}">
                     {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon"/></a>
                 </div>
-                <div class="hw-box">{{course.get_latest_hw}}</div>
+                <div class="hw-box">{{course.get_latest_hw.hw_text}}</div>
               </div>
             {% endif %}
           {% endfor %}
