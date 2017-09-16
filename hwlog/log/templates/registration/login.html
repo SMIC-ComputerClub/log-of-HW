@@ -9,6 +9,7 @@
       {% else %}
         <div class="lgn-container col-lg-8">
             <h1 class="content-heading"> Login </h1>
+            <!--
             <form id="login-form" method="post">
                 {% csrf_token %}
                 <table class="table">
@@ -34,6 +35,25 @@
                        class="btn btn-primary pull-right" />
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>
+          -->
+          <form method="post">
+            {% load widget_tweaks %}
+            {% csrf_token %}
+            <div class="form-row">
+              <span class="form-label"> Username </span>
+              {% render_field form.username %}
+            </div>
+            <div class="form-row">
+              <span class="form-label"> Password </span>
+              {% render_field form.password %}
+            </div>
+            <div class="form-row">
+              {% if form.errors %}
+                <span> Please enter a correct username and password.</span>
+              {% endif %}
+            </div>
+            <button type="submit" class="btn">Login</button>
+          </form>
         </div>
       {% endif %}
     </div>

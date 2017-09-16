@@ -28,7 +28,7 @@ class Homework(models.Model):
         return self.hw_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        return self.pub_date.date() == timezone.now().date()
 #class Period(models.Model):
 #    time = models.IntegerField()
 #    hw = models.TextField(max_length=500, blank=True)
