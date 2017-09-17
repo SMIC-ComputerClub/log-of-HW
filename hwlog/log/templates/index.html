@@ -33,16 +33,34 @@
             <span class="index-heading-text">Made for students, by students</span>
             <span class="index-description-text">LogofHW is a platform for students to share and keep track of homework assignments more effectively. </span>
           </div>
-          <img src= "{% static 'log/images/logo-stroked.svg' %}" class='index-logo'/>
+          <img src= "{% static 'log/images/logo.svg' %}" class='index-logo'/>
         </div>
       </div>
-      <div class="home-boxes">
-        <p class="box-label">Already have an account? </p>
-        <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
-      </div>
-      <div class="home-boxes">
-        <p class="box-label"> Don't have an account? </p>
-        <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
+      <div class="index-button-container">
+        <div class="home-boxes">
+          <p class="box-label">Already have an account? </p>
+          <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
+        </div>
+        <div class="home-boxes">
+          <p class="box-label"> Don't have an account? </p>
+          <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
+        </div>
+        <figure>
+          <a href="{% url 'login' %}">
+            <div>
+              <span class="cool-button">Already have an account?</span>
+              <span class="cool-button">Login </span>
+            </div>
+          </a>
+        </figure>
+        <figure>
+          <a href="{% url 'signup' %}">
+            <div>
+              <span class="cool-button">Don't have an account?</span>
+              <span class="cool-button">Sign Up</span>
+            </div>
+          </a>
+        </figure>
       </div>
     {% endif %}
   </div>
