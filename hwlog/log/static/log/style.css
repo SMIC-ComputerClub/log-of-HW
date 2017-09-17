@@ -131,7 +131,7 @@ footer {
   align-items: center;
 }
 .index-top-section{
-  width: 100%;
+  width: inherit;
   height: 450px;
   display: flex;
   flex-direction: row;
@@ -307,6 +307,14 @@ td {
 figure{
   display:none;
 }
+.button-container{
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height:100%;
+  width: 45%;
+}
+
 
 @media only screen and (max-width: 400px) {}
 
@@ -378,12 +386,56 @@ figure{
   .button{
     margin: 50px;
   }
-
-  figure{display:inherit;width:100%;height:60px;cursor:pointer;perspective:500px;-webkit-perspective:500px;margin:1.3em 0;}
-  figure div{height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:0.25s;-webkit-transition:0.25s;}
-  figure:hover div{transform:rotateX(-90deg);}
-  .cool-button{width:100%;height:100%;position:absolute;box-sizing:border-box;border:5px solid #434343;font-family:'robotoregular',sans-serif;line-height:50px;font-size:17pt;font-weight: bold;text-align:center;text-transform:uppercase;}
-  .cool-button:nth-child(1){color:#434343;transform: translate3d(0, 0, 30px);-webkit-transform: translate3d(0, 0, 30px);}
-  .cool-button:nth-child(2){color:#FFF;background:#434343;transform: rotateX(90deg) translate3d(0, 0, 30px);-webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);}
+  .button-container{
+    display:flex;
+  }
+  figure{
+    display:inherit;
+    width:100%;
+    height:100px;
+    cursor:pointer;
+    perspective:500px;
+    -webkit-perspective:1300px;
+    margin:1.3em 0;
+  }
+  figure div{
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    -webkit-transform-style:preserve-3d;
+    transition:0.25s;
+    -webkit-transition:0.25s;
+  }
+  figure:hover div{
+    transform:rotateX(-90deg);
+  }
+  .cool-button{
+    width:300px;
+    height:100%;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing:border-box;
+    border:5px solid #24292E;
+    font-family:'robotoregular',sans-serif;
+    line-height:1.5em;
+    font-size:18pt;
+    font-weight: bold;
+    text-align:center;
+    text-transform:uppercase;
+  }
+  .cool-button:nth-child(1){
+    color:#adadad;
+    background:rgba(0,0,0,0.3);
+    transform: translate3d(0, 0, 50px);
+    -webkit-transform: translate3d(0, 0, 50px);
+  }
+  .cool-button:nth-child(2){
+    color:#FFF;
+    background:#24292E;
+    transform: rotateX(90deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateX(90deg) translate3d(0, 0, 50px);
+  }
 
 }

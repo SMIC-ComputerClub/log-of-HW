@@ -33,7 +33,24 @@
             <span class="index-heading-text">Made for students, by students</span>
             <span class="index-description-text">LogofHW is a platform for students to share and keep track of homework assignments more effectively. </span>
           </div>
-          <img src= "{% static 'log/images/logo.svg' %}" class='index-logo'/>
+          <div class="button-container">
+            <figure>
+              <a href="{% url 'login' %}">
+                <div>
+                  <span class="cool-button">Already have an account?</span>
+                  <span class="cool-button">Login </span>
+                </div>
+              </a>
+            </figure>
+            <figure>
+              <a href="{% url 'signup' %}">
+                <div>
+                  <span class="cool-button">Don't have an account?</span>
+                  <span class="cool-button">Sign Up</span>
+                </div>
+              </a>
+            </figure>
+          </div>
         </div>
       </div>
       <div class="index-button-container">
@@ -45,22 +62,6 @@
           <p class="box-label"> Don't have an account? </p>
           <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
         </div>
-        <figure>
-          <a href="{% url 'login' %}">
-            <div>
-              <span class="cool-button">Already have an account?</span>
-              <span class="cool-button">Login </span>
-            </div>
-          </a>
-        </figure>
-        <figure>
-          <a href="{% url 'signup' %}">
-            <div>
-              <span class="cool-button">Don't have an account?</span>
-              <span class="cool-button">Sign Up</span>
-            </div>
-          </a>
-        </figure>
       </div>
     {% endif %}
   </div>
