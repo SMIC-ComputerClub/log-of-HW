@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Index{% endblock %}
+{% block title %}log(HW){% endblock %}
 
 {% block content %}
-  <div class="index-main">
+  <div class="content-container">
     {% if user.is_authenticated %}
       {% if user.courses_joined.count > 0 %}
         <div class="log-container">
@@ -27,7 +27,15 @@
         <a href = "{% url 'configure' %}">Please select your classes first!</a>
       {% endif %}
     {% else %}
-    <div class="section">
+      <div class="index-top-section">
+        <div class="index-container">
+          <div class="index-box">
+            <span class="index-heading-text">Made for students, by students</span>
+            <span class="index-description-text">LogofHW is a platform for students to share and keep track of homework assignments more effectively. </span>
+          </div>
+          <img src= "{% static 'log/images/logo-stroked.svg' %}" class='index-logo'/>
+        </div>
+      </div>
       <div class="home-boxes">
         <p class="box-label">Already have an account? </p>
         <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
@@ -36,7 +44,6 @@
         <p class="box-label"> Don't have an account? </p>
         <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
       </div>
-    </div>
     {% endif %}
   </div>
 {% endblock content %}
