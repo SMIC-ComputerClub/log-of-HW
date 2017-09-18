@@ -225,18 +225,14 @@ footer {
   text-align: center;
 }
 .lgn-container{
+  width:100%;
+  max-width: 961px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 30px;
-  padding: 50px;
-  background-color: lightgrey;
-  border: 2px solid black;
-}
-.lgn-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 25px 20px;
+  background-color: rgb(204, 204, 204);
 }
 td {
     margin-bottom: 15px;
@@ -253,9 +249,14 @@ td {
 
   padding: 10px 40px;
   cursor: pointer;
+  width: 100%;
 }
 .btn:hover {
   background-color: #76AEED;
+}
+.btn-center-box{
+  display: flex;
+  justify-content: center;
 }
 .form-row {
   margin-bottom: 1.3em;
@@ -315,6 +316,61 @@ figure{
   width: 45%;
 }
 
+form input {
+  font-family: "robotoregular", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 17px;
+}
+
+.styled-select{
+   height: 29px;
+   overflow: hidden;
+}
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 2px solid #ddd;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+.slate   { background-color: #F2F2F2; }
+.slate select   { color: #000; }
+
+.configure-row{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  background-color: #F2F2F2;
+  padding: 3px;
+  width: 100%;
+}
+.configure-row:last-of-type{
+  margin-bottom: 10px;
+}
+.configure-row label{
+  margin-right: 10px;
+}
 
 @media only screen and (max-width: 400px) {}
 
@@ -410,7 +466,7 @@ figure{
     transform:rotateX(-90deg);
   }
   .cool-button{
-    width:300px;
+    width:280px;
     height:100%;
     position:absolute;
     display: flex;
@@ -437,5 +493,7 @@ figure{
     transform: rotateX(90deg) translate3d(0, 0, 50px);
     -webkit-transform: rotateX(90deg) translate3d(0, 0, 50px);
   }
-
+  .lgn-container{
+    padding:35px;
+  }
 }

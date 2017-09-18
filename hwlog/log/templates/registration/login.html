@@ -7,8 +7,7 @@
       {% if user.is_authenticated %}
         <h1>Logout first before you login again!</h1>
       {% else %}
-        <div class="lgn-container col-lg-8">
-            <h1 class="content-heading"> Login </h1>
+        <div class="lgn-container col-lg-8" style="margin-top: 30px;">
             <!--
             <form id="login-form" method="post">
                 {% csrf_token %}
@@ -40,19 +39,19 @@
             {% load widget_tweaks %}
             {% csrf_token %}
             <div class="form-row">
-              <span class="form-label"> Username </span>
-              {% render_field form.username %}
+              {% render_field form.username placeholder="Username" %}
             </div>
             <div class="form-row">
-              <span class="form-label"> Password </span>
-              {% render_field form.password %}
+              {% render_field form.password placeholder="Password" %}
             </div>
+            {% if form.errors %}
             <div class="form-row">
-              {% if form.errors %}
-                <span> Please enter a correct username and password.</span>
-              {% endif %}
+              <span> Please enter a correct username and password.</span>
             </div>
-            <button type="submit" class="btn">Login</button>
+            {% endif %}
+            <div class="btn-center-box">
+              <button type="submit" class="btn">Login</button>
+            </div>
           </form>
         </div>
       {% endif %}
