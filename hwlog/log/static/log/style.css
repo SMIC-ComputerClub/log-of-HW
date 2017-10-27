@@ -354,7 +354,6 @@ form input {
 }
 .slate   { background-color: #F2F2F2; }
 .slate select   { color: #000; }
-
 .configure-row{
   margin: 0 auto;
   display: flex;
@@ -362,9 +361,10 @@ form input {
   align-content: center;
   justify-content: center;
   background-color: #F2F2F2;
-  padding: 3px;
+  padding: 7px 1px;
   width: 100%;
 }
+
 .configure-row:last-of-type{
   margin-bottom: 10px;
 }
