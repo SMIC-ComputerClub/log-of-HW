@@ -13,6 +13,8 @@ from .forms import ClassEnrollForm, ChangeHWForm
 from .models import Homework
 from django.utils import timezone
 
+def about(request):
+    return render(request,'about.html')
 
 def home(request): #index page
     return render(request,'index.html')

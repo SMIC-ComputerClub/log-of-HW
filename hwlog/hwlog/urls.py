@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^configure/$', views.configure, name = 'configure'),
     url(r'^log/', include('log.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^about/', views.about, name = 'about'),
 ]
