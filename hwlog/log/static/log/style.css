@@ -165,11 +165,17 @@ footer {
   margin-bottom: 0.5em;
   text-align: center;
 }
-.index-description-text{
+.index-banner-text{
   margin-right: 20px;
   font-family: 'robotoregular', 'Segoe UI', sans-serif;
   color: #AAADAF;
   font-size:1.3em;
+  text-align: center;
+}
+.index-description-text{
+  font-family: 'robotoregular', 'Segoe UI', sans-serif;
+  color: black;
+  font-size:20px;
   text-align: center;
 }
 .index-logo{
@@ -446,7 +452,7 @@ form input {
   .menu>li:last-of-type {
     margin-right: 0px;
   }
-  .index-heading-text,.index-description-text{
+  .index-heading-text,.index-banner-text{
     text-align: left;
   }
   .index-logo{

@@ -31,7 +31,7 @@
         <div class="index-container">
           <div class="index-box">
             <span class="index-heading-text">Made for students, by students</span>
-            <span class="index-description-text">LogofHW is a platform for students to share and keep track of homework assignments more effectively. </span>
+            <span class="index-banner-text">LogofHW is a platform for students to share and keep track of homework assignments more effectively. </span>
           </div>
           <div class="button-container">
             <figure>
@@ -63,9 +63,17 @@
           <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
         </div>
       </div>
-      It is a common sight to see a student desperately scribble down the homework before hurriedly dashing his/her next class.
-      And in other cases, the student might have forgotten to entirely.
-      Or perhaps the student is simply too lazy. 
+      <div class="log-container index-description-text" style="margin-top: 30px;">
+        Tis a common sight to see a student desperately scribble down the homework before hurriedly dashing to the next class. <br>
+        Or in other cases, the student might have forgotten to entirely. <br>
+        Or perhaps the student is simply too lazy. <br><br>
+        Cue log(hw). <br><br>
+        log(hw) allows each students to personalize his/her own online homework log.
+        Only one person needs to upload the homework, and everyone will be able to see it on their own homework logs. 
+
+      </div>
+
+
     {% endif %}
   </div>
 {% endblock content %}
