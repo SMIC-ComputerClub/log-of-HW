@@ -311,6 +311,11 @@ td {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+.styled-select select{
+  width:200px;
+  height:100px;
+  overflow-y: scroll;
+}
 figure{
   display:none;
 }
@@ -334,32 +339,6 @@ form input {
   font-size: 17px;
 }
 
-.styled-select{
-   height: 29px;
-   overflow: hidden;
-}
-.styled-select select {
-   background: transparent;
-   border: none;
-   font-size: 14px;
-   height: 29px;
-   padding: 5px; /* If you add too much padding here, the options won't show in IE */
-}
-
-.styled-select.slate {
-   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-   height: 34px;
-   width: 240px;
-}
-
-.styled-select.slate select {
-   border: 2px solid #ddd;
-   font-size: 16px;
-   height: 34px;
-   width: 268px;
-}
-.slate   { background-color: #F2F2F2; }
-.slate select   { color: #000; }
 .configure-row{
   margin: 0 auto;
   display: flex;
