@@ -16,9 +16,12 @@
                     {% load static %}<img src="{% static 'log/images/warning.svg' %}" class="warning-icon" title="Not updated today"/>
                   {% endif %}
                   <a href="{% url 'log:detail' course.id %}">
-                    {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon"/></a>
+                    {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon" title="Edit"/></a>
                 </div>
-                <div class="hw-box">{{course.get_latest_hw.hw_text}}</div>
+                <div class="hw-box">
+                  {{course.get_latest_hw.hw_text}}
+                  <div class="date">{{course.get_latest_hw.get_pub_date}}</div>
+                </div>
               </div>
             {% endif %}
           {% endfor %}

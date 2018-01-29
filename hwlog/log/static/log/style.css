@@ -74,6 +74,7 @@ footer {
 .hw-box{
   width: inherit;
   display: flex;
+  position: relative;
   padding: 10px;
   background-color: #e8e8e8;
   overflow-wrap: break-word;
@@ -260,6 +261,12 @@ td {
 .btn:hover {
   background-color: #76AEED;
 }
+.orange{
+  background-color: #F2781C;
+}
+.orange:hover{
+  background-color: #ff9b54;
+}
 .btn-center-box{
   display: flex;
   justify-content: center;
@@ -373,6 +380,25 @@ form input {
   font-size: 20px;
   margin-bottom: 10px;
 }
+.date{
+  display:block;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #b2b2b2;
+  font-size:12px;
+}
+.QR{
+  width: 30%;
+  margin: 0 auto;
+}
+.detail-container{
+  background-color: #505050;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23353535' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.detail-heading{
+  color: white;
+}
 
 @media only screen and (max-width: 400px) {}
 
@@ -385,6 +411,7 @@ form input {
 /* Desktop Styles */
 
 @media only screen and (min-width: 961px) {
+
   .index-container,.index-button-container{
     width: 961px;
   }
