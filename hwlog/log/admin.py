@@ -3,6 +3,8 @@ from django.contrib import admin
 # Register your models here.
 from .models import Course, Homework
 
+
+
 class HomeworkInline(admin.TabularInline):
     model = Homework
     extra = 3
