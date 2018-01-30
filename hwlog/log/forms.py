@@ -1,14 +1,17 @@
 from django import forms
 from .models import Course
+from itertools import chain
 
 class ClassEnrollForm(forms.Form): #form to edit course settings
-    course_1 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_2 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_3 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_4 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_5 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_6 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
-    course_7 = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label=None)
+    courseList = Course.objects.order_by('course_name')
+
+    course_1 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_2 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_3 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_4 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_5 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_6 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
+    course_7 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
 
 class ChangeHWForm(forms.Form): #form to edit hw of a class
-    hw_text = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '200'}))
+    hw_text = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '180'}))

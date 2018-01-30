@@ -320,7 +320,6 @@ td {
 }
 .styled-select select{
   width:200px;
-  height:100px;
   overflow-y: scroll;
 }
 figure{
@@ -524,5 +523,8 @@ form input {
   }
   .lgn-container{
     padding:35px;
+  }
+  .styled-select select{
+    height: 100px;
   }
 }

@@ -7,7 +7,7 @@
       {% if user.courses_joined.count > 0 %}
         <div class="log-container">
           {% for course in user.courses_joined.all %}
-            {% if course.course_name == "None" %}
+            {% if course.course_name == "--None--" %}
             {% else %}
               <div class="log-container-row">
                 <div class="course-name-box">
@@ -71,7 +71,7 @@
         Or in other cases, the student might have forgotten to entirely. <br>
         Or perhaps the student is simply too lazy. <br><br>
         Cue log(hw). <br><br>
-        log(hw) allows each students to personalize his/her own online homework log.
+        log(hw) allows each student to personalize his/her own online homework log.
         Only one person needs to upload the homework, and everyone will be able to see it on their own homework logs.
 
       </div>

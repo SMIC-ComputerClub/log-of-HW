@@ -71,7 +71,7 @@ def configure(request): #settings page, might be lots of bugs
     else:
         user_courses = request.user.courses_joined.all()
         user_class = [ ]
-        no_course = Course.objects.get(course_name='None')
+        no_course = Course.objects.get(course_name='--None--')
 
     #    try:                                                        #extremely inefficient i think
     #        user_class_1 = user_courses[0]
