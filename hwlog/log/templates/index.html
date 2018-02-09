@@ -18,7 +18,7 @@
                   <a href="{% url 'log:detail' course.id %}">
                     {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon" title="Edit"/></a>
                 </div>
-                <div class="hw-box">
+                <div class="hw-box" onclick="strikeThrough(this.id)" id="{{course.id}}">
                   {{course.get_latest_hw.hw_text}}
                   <div class="date">{{course.get_latest_hw.get_pub_date}}</div>
                 </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
   {% load static %}
   <link rel="stylesheet" href="{% static 'log/style.css' %}" />
@@ -8,6 +9,19 @@
   <title>{% block title %}log(HW){% endblock %}</title>
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <link rel="shortcut icon" href="{% static 'log/images/favicon.ico' %}"/>
+
+  <script>
+    function strikeThrough(clicked_id){
+      element = document.getElementById(clicked_id);
+      if (element.style.textDecoration == "none"){
+        element.style.setProperty("text-decoration", "line-through");
+      }
+      else{
+        element.style.setProperty("text-decoration", "none");
+      }
+    }
+  </script>
+
 </head>
 <body>
   <div class='wrapper'>
