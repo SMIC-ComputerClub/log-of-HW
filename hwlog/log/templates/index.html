@@ -2,6 +2,17 @@
 {% block title %}log(HW){% endblock %}
 
 {% block content %}
+  <script>
+    function strikeThrough(clicked_id){
+      element = document.getElementById(clicked_id);
+      if (element.style.textDecoration == "none"){
+        element.style.setProperty("text-decoration", "line-through");
+      }
+      else{
+        element.style.setProperty("text-decoration", "none");
+      }
+    }
+  </script>
   <div class="content-container">
     {% if user.is_authenticated %}
       {% if user.courses_joined.count > 0 %}
