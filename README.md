@@ -1,4 +1,5 @@
-# HW-Log
+# log(HW)
+![log(HW)](hwlog/log/static/log/images/logo.png)
 
 ## Why I created log(HW):
 
