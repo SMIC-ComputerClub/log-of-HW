@@ -48,8 +48,15 @@
     <div class="push"></div>
   </div>
   <footer>
+    <div class="footer-container" style="justify-content: center">
+      <p> Provided to you by the SMIC Computer Club</p>
+    </div>
     <div class="footer-container">
-      <p style="text-align: center;"> Provided to you by the SMIC Computer Club </p>
+      <div style="display:flex; flex-direction: column; align-items: center;">
+        <img style="height:100px; width:100px; margin-bottom:10px;" src="{% static 'log/images/SupportGroupQR.jpg' %}" />
+        <p>Join the support group!</p>
+      </div>
+      <p><a href="{% url 'about' %}" class="about-link">About</a></p>
     </div>
   </footer>
 </body>

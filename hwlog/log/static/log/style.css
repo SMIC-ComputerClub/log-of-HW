@@ -26,7 +26,10 @@ header {
 }
 footer {
   width: 100%;
-  height: 200px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   background: #24292E;
   margin-top: 10px;
@@ -39,11 +42,14 @@ footer {
   margin: 0 auto -105px;
 }
 .footer-container{
+  width:100%;
+  max-width: 961px;
   display: flex;
-  padding: 20px;
-  justify-content: center;
-  color:  #d6d6d6;
-
+  flex-direction: row;
+  padding: 10px;
+  align-items: stretch;
+  justify-content: space-between;
+  color: #d6d6d6;
 }
 .log-container{
   width: 100%;
@@ -77,6 +83,7 @@ footer {
   position: relative;
   padding: 10px;
   background-color: #e8e8e8;
+  text-decoration: none;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -108,12 +115,12 @@ footer {
   text-align: center;
 }
 
-.menu> li > a:link, .menu> li > a:visited {
+.about-link:link, .about-link:visited, .menu> li > a:link, .menu> li > a:visited {
   color:  #d6d6d6;
   text-decoration: none;
 }
 
-.menu> li >a:hover {
+.about-link:hover, .menu> li >a:hover {
   color: #efefef;
   text-decoration: none;
 }
