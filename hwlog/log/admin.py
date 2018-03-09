@@ -19,13 +19,14 @@ class CourseAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['course_name','students']}),
     ]
+    filter_horizontal = ['students']
     inlines = [HomeworkInline]
     #filter_horizontal = ['students']
 #    list_display = ('question_text','pub_date','was_published_recently')
 #    list_filter = ['pub_date']
 #    search_fields = ['question_text']
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
@@ -33,7 +34,10 @@ class CustomUserAdmin(UserAdmin):
                                        'groups', 'user_permissions')}),
         (('Important dates'), {'fields': ('last_login', 'date_joined',)}),
     )
-    #filter_horizontal = ['courses_joined'] //how to make this work?
+
+    #inlines = [CourseInline]
+    #filter_horizontal = ['courses_joined'] #how to make this work?
+
 
 class HomeworkAdmin(admin.ModelAdmin):
     fieldsets = [
