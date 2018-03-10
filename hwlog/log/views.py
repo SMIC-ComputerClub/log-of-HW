@@ -122,7 +122,7 @@ def detail(request, course_id): #page to edit hw
     if request.method == 'POST':
         form = ChangeHWForm(request.POST)
         if form.is_valid():
-            course.homework_set.create(hw_text=form.cleaned_data['hw_text'], pub_date=timezone.now())
+            course.homework_set.create(hw_text=form.cleaned_data['hw_text'], pub_date=timezone.now(), poster=request.user)
             return redirect('home')
     else:
         form = ChangeHWForm({'hw':course.get_latest_hw})

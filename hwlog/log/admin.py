@@ -41,7 +41,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 class HomeworkAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['hw_text','course','pub_date']}),
+        (None,               {'fields': ['hw_text','course','poster','pub_date']}),
     ]
 
 #admin.site.unregister(User)
