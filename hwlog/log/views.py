@@ -128,4 +128,4 @@ def detail(request, course_id): #page to edit hw
         form = ChangeHWForm({'hw':course.get_latest_hw})
     return render(request, 'detail.html', {'form': form,
                                             'course': course,
-                                            'latest_hw_list': course.homework_set.order_by('-pub_date')[:5]})
+                                            'latest_hw_list': course.homework_set.order_by('-pub_date')[:7]})

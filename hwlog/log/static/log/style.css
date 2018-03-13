@@ -313,6 +313,7 @@ td {
 }
 .extra-hw-box{
   display: flex;
+  position: relative;
   width: 90%;
   padding: 15px;
   background-color: #e8e8e8;
@@ -389,9 +390,9 @@ form input {
 .date{
   display:block;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
-  color: #b2b2b2;
+  bottom: 3px;
+  right: 3px;
+  color: #b1b1b1;
   font-size:12px;
 }
 .QR{
