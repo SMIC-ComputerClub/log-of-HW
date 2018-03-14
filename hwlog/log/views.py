@@ -89,4 +89,4 @@ def detail(request, course_id): #page to edit hw
     one_week_ago = timezone.now()-timedelta(days=7) #create date object to filter homework posted within a week
     return render(request, 'detail.html', {'form': form,
                                             'course': course,
-                                            'latest_hw_list': course.homework_set.filter(pub_date__gte=one_week_ago)})
+                                            'latest_hw_list': course.homework_set.filter(pub_date__gte=one_week_ago).reverse()})
