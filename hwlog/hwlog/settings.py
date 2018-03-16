@@ -128,3 +128,5 @@ STATIC_URL = '/static/'
 # Login redirect
 
 LOGIN_REDIRECT_URL = 'home'
+
+SECURE_SSL_REDIRECT = True
