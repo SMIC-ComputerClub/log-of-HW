@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
 
-class Setting(models.Model):
+class Reminder(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-
+    hw_text = models.CharField(max_length=180)
+    def __str__(self):
+        return self.user.username
 
 class Course(models.Model):
     def __str__(self):
@@ -21,7 +22,7 @@ class Course(models.Model):
 
 class Homework(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE,null=True, blank=True)
-    hw_text = models.CharField(max_length=200)
+    hw_text = models.CharField(max_length=180)
     pub_date = models.DateTimeField('date published')
     poster = models.ForeignKey(User, on_delete=models.CASCADE,null=True, blank=True)
 

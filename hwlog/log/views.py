@@ -8,9 +8,8 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.views import generic
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
-from .models import Course
+from .models import Course, Homework, Reminder
 from .forms import ClassEnrollForm, ChangeHWForm
-from .models import Homework
 from django.utils import timezone
 from datetime import datetime, timedelta
 
@@ -28,6 +27,7 @@ def signup(request): #signup page
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            Reminder.objects.create(user=user)
             login(request, user)
             return redirect('configure')
     else:
@@ -90,3 +90,15 @@ def detail(request, course_id): #page to edit hw
     return render(request, 'detail.html', {'form': form,
                                             'course': course,
                                             'latest_hw_list': reversed(course.homework_set.filter(pub_date__gte=one_week_ago))})
+
+def reminder(request): #page to edit hw
+    if request.method == 'POST':
+        form = ChangeHWForm(request.POST)
+        if form.is_valid():
+            request.user.reminder.hw_text=form.cleaned_data['hw_text']
+            request.user.reminder.save()
+            return redirect('home')
+    else:
+        form = ChangeHWForm()
+
+    return render(request, 'reminder.html', {'form': form,})

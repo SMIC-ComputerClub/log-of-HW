@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Course, Homework
+from .models import Course, Homework, Reminder
 #from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django import forms
@@ -44,6 +44,11 @@ class HomeworkAdmin(admin.ModelAdmin):
         (None,               {'fields': ['hw_text','course','poster','pub_date']}),
     ]
 
+class ReminderAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['hw_text','user']}),
+    ]
+
 #admin.site.unregister(User)
 #admin.site.register(User, CustomUserAdmin)
 
@@ -51,3 +56,4 @@ admin.site.register(LogEntry)
 
 admin.site.register(Homework, HomeworkAdmin)
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Reminder, ReminderAdmin)

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Reminder{% endblock %}
+
+{% block content %}
+  <div class="content-container">
+    <div class="lgn-container detail-container">
+      {% if user.is_authenticated %}
+        <h1 class="content-heading detail-heading">Reminder</h2>
+        <h3 class="content-heading detail-heading">Others will not see this!<h3>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-row">
+            {% load widget_tweaks %}
+            {% render_field form.hw_text class+="hw-textarea" %}
+          </div>
+          <button type="submit" class="btn orange">Save changes</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Login before you can edit! </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
