@@ -22,7 +22,7 @@
     {% for homework in latest_hw_list %}
     <div class="extra-hw-box">
       <p>{{homework.hw_text}}</p>
-      <div class="date">{{homework.get_pub_date}}</div>
+      <div class="date">{{homework.poster}} - {{homework.get_pub_date}}</div>
     </div>
     {% endfor %}
   </div>
