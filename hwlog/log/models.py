@@ -30,10 +30,11 @@ class Homework(models.Model):
         return self.hw_text
 
     def was_published_recently(self):
-        if ((self.pub_date.weekday()==4 or self.pub_date.weekday()==5) and (timezone.now().weekday()==5 or timezone.now().weekday()==6)):
+        timenow = timezone.now()
+        if ((self.pub_date.weekday()==4 or self.pub_date.weekday()==5) and (timenow.weekday()==5 or timenow.weekday()==6) and (self.pub_date+timedelta(days=2) > timenow)):
             return True #returns true on weekends if hw was posted on friday
         else:
-            return self.pub_date.date() == timezone.now().date()
+            return self.pub_date.date() == timenow.date()
 
     def get_pub_date(self):
         return self.pub_date
