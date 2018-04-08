@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-import datetime
+from datetime import datetime, timedelta
 from django.utils import timezone
 
 class Reminder(models.Model):
@@ -31,7 +31,7 @@ class Homework(models.Model):
 
     def was_published_recently(self):
         timenow = timezone.now()
-        if ((self.pub_date.weekday()==4 or self.pub_date.weekday()==5) and (timenow.weekday()==5 or timenow.weekday()==6) and (self.pub_date+timedelta(days=2) > timenow)):
+        if ((self.pub_date.weekday()==4 or self.pub_date.weekday()==5) and (timenow.weekday()==5 or timenow.weekday()==6) and (self.pub_date+timedelta(days=3) > timenow)):
             return True #returns true on weekends if hw was posted on friday
         else:
             return self.pub_date.date() == timenow.date()
