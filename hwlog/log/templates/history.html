@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}History{% endblock %}
+
+{% block content %}
+  <div class="content-container">
+    <h2 style="margin-bottom: 15px"> {{course.course_name}} </h2>
+    {% for homework in latest_hw_list %}
+    <div class="extra-hw-box">
+      <p>{{homework.hw_text}}</p>
+      <div class="date">{{homework.poster}} - {{homework.get_pub_date}}</div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

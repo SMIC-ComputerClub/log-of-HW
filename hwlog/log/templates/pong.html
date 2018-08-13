@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block title %}Pong{% endblock %}
+
+{% block content %}
+  <div class="content-container">
+  	<canvas id="gameCanvas" width="800" height="600"></canvas>
+	<script>
+		var canvas;
+		var canvasContext;
+		var ballX=400;
+		var ballY=400;
+		var ballSpeedX = 3;
+		var origSpeedY = 3;
+		var ballSpeedY = origSpeedY;
+		var paddle1Y = 250;
+		var paddle2Y = 250;
+		var acc=0;
+		var win_screen = false;
+		var start_screen = true;
+
+		const WIN_SCORE = 3;
+		const ADJ = 20;
+		const PADDLE_HEIGHT = 100;
+		const PADDLE_WIDTH = 20;
+		const BALL_RADIUS = 10;
+
+		var player1Score = 0;
+		var player2Score = 0;
+
+		function calculateMousePos(evt){
+			var rect = canvas.getBoundingClientRect();
+			var root = document.documentElement;
+			var mouseX = evt.clientX - rect.left - root.scrollLeft;
+			var mouseY = evt.clientY - rect.top - root.scrollTop;
+			return {
+				x:mouseX,
+				y:mouseY
+			}
+		}
+		function handleMouseClick(evt) {
+			if(win_screen) {
+				player1Score = 0;
+				player2Score = 0;
+				win_screen = false;
+			}
+			else if (start_screen) {
+				start_screen = false;
+			}
+		}
+		window.onload = function(){
+			canvas = document.getElementById('gameCanvas');
+			canvasContext = canvas.getContext('2d');
+			canvasContext.font="30px Verdana";
+			
+			var framesPerSecond = 60;
+			setInterval(function(){
+					moveEverything();
+					drawEverything();
+			}, 1000/framesPerSecond);
+
+			canvas.addEventListener('mousemove',
+				function(evt) {
+					var mousePos = calculateMousePos(evt);
+					paddle1Y = mousePos.y-PADDLE_HEIGHT/2;
+				});
+			canvas.addEventListener('mousedown', handleMouseClick);
+		}
+		function moveEverything(){
+			if (win_screen || start_screen){
+				return;
+			}
+
+			ballY += ballSpeedY;
+			ballX += ballSpeedX;
+			twoHundredIQ();
+			if (ballX > canvas.width-PADDLE_WIDTH-BALL_RADIUS){
+				if (ballY >= paddle2Y - ADJ && ballY <= paddle2Y + PADDLE_HEIGHT + ADJ){
+					ballSpeedX *= -1;
+					var deltaY = ballY - (paddle2Y+PADDLE_HEIGHT/2);
+					ballSpeedY = origSpeedY * (deltaY*0.05);
+				}else{
+				player1Score++;
+				ballReset();
+				}
+			} 
+			if (ballX <PADDLE_WIDTH+BALL_RADIUS){
+				if (ballY >= paddle1Y - ADJ && ballY <= paddle1Y + PADDLE_HEIGHT + ADJ){
+					ballSpeedX *= -1;
+					var deltaY = ballY - (paddle1Y+PADDLE_HEIGHT/2);
+					ballSpeedY = origSpeedY * (deltaY*0.05);
+				}else{
+				player2Score++;
+				ballReset();
+				}
+			}
+			if (ballY > canvas.height || ballY <0){
+				ballSpeedY *= -1;
+			}
+
+		}
+		function drawNet() {
+			for(var i=0;i<canvas.height;i+=40) {
+				colorRect(canvas.width/2-1,10+i,2,20,'white');
+			}
+		}
+		function twoHundredIQ(){
+			if (paddle2Y + PADDLE_HEIGHT/2 < ballY){
+				paddle2Y += Math.abs(ballSpeedY)*0.86;
+			}
+			else{
+				paddle2Y -= Math.abs(ballSpeedY)*0.86;
+			}
+		}
+		function drawEverything(){
+			moveEverything();
+			colorRect(0, 0, canvas.width, canvas.height, 'black');
+			if (win_screen){
+				canvasContext.fillStyle = 'white';
+				if (player1Score > player2Score){
+					canvasContext.fillText("you won",350,100);
+				}
+				else{
+					canvasContext.fillText("weak",350,100);
+				}
+				canvasContext.fillText("Click to continue", 200, 400);
+				return;
+			}
+			drawNet();
+			colorRect(0, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
+			colorRect(canvas.width - PADDLE_WIDTH, paddle2Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
+			colorCircle(ballX, ballY, BALL_RADIUS, 'white');
+
+			canvasContext.fillText(player1Score, 100, 100);
+			canvasContext.fillText(player2Score, 700, 100);
+
+		}
+		function ballReset(){
+			if (player1Score >= WIN_SCORE || player2Score >= WIN_SCORE){
+				win_screen = true;
+			}
+			ballSpeedX *= -1;
+			ballSpeedY = origSpeedY;
+			ballX = canvas.width/2;
+			ballY = canvas.height/2;
+		}
+		function colorRect(leftX,topY, width,height, drawColor){
+			canvasContext.fillStyle = drawColor;
+			canvasContext.fillRect(leftX,topY, width,height);
+		}
+		function colorCircle(x, y, radius, color){
+			canvasContext.fillStyle = color;
+			canvasContext.beginPath();
+			canvasContext.arc(x, y, radius, 0, Math.PI*2, true);
+			canvasContext.fill();
+		}
+	</script>
+  </div>
+{% endblock %}

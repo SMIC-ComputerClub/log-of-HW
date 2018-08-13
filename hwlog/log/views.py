@@ -61,9 +61,9 @@ def configure(request): #settings page, might be lots of bugs
         no_course = Course.objects.get(course_name='--None--')
 
         for x in range(0,7): #create an array with user courses^
-            try:
+            if x < len(user_courses):
                 user_class.append(user_courses[x])
-            except IndexError:
+            else:
                 user_class.append(no_course)
 
         form = ClassEnrollForm(initial={'course_1': user_class[0], #prepopulating with user's settings
@@ -91,7 +91,11 @@ def detail(request, course_id): #page to edit hw
                                             'course': course,
                                             'latest_hw_list': reversed(course.homework_set.filter(pub_date__gte=one_week_ago))})
 
-def reminder(request): #page to edit hw
+def history(request, course_id):
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request, 'history.html', {'course': course,
+                                            'latest_hw_list': reversed(course.homework_set.all())})
+def reminder(request): #page to edit remainder
     if request.method == 'POST':
         form = ChangeHWForm(request.POST)
         if form.is_valid():
@@ -102,3 +106,6 @@ def reminder(request): #page to edit hw
         form = ChangeHWForm()
 
     return render(request, 'reminder.html', {'form': form,})
+
+def game(request):
+    return render(request, 'pong.html')

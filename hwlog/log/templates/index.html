@@ -5,7 +5,7 @@
   <script>
     function strikeThrough(clicked_id){
       element = document.getElementById(clicked_id);
-      if (element.style.textDecoration == "none"){
+      if (element.style.textDecoration != "line-through"){
         element.style.setProperty("text-decoration", "line-through");
       }
       else{

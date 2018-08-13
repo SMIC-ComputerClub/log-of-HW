@@ -25,5 +25,6 @@
       <div class="date">{{homework.poster}} - {{homework.get_pub_date}}</div>
     </div>
     {% endfor %}
+    <a href="{% url 'log:history' course_id=course.id %}">See full history</a>
   </div>
 {% endblock %}
