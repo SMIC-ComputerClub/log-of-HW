@@ -89,8 +89,8 @@ def detail(request, course_id): #page to edit hw
 
     one_week_ago = timezone.now()-timedelta(days=7) #create date object to filter homework posted within a week
     hw_list = course.homework_set.filter(pub_date__gte=one_week_ago)
-    length = len(hw_list)-1
-    if length > 10: end = length-10
+    length = len(hw_list)
+    if length > 10: end = length-11
     else: end = None #using 0 doesnt work, since it would exclude the last element
     return render(request, 'detail.html', {'form': form,
                                             'course_name': course.course_name,
