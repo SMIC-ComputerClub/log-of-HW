@@ -3,14 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-a{
+.history-link{
   color: #25292E;
   text-decoration: none;
 }
-a:hover{
+.history-link:hover{
   color: #F2781C;
 }
-a:active{
+.history-link:active{
   color: #ff9b54;
 }
 html {
@@ -68,7 +68,7 @@ footer {
   display:flex;
   flex-direction: row;
   width:100%;
-  height: 160px;
+  min-height: 160px;
   margin-bottom: 5px;
 }
 .log-container-row:last-of-type{
@@ -94,6 +94,7 @@ footer {
   padding: 10px;
   background-color: #e8e8e8;
   text-decoration: none;
+  height: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -200,7 +201,7 @@ footer {
   display: none;
 }
 
-.button {
+.button-index {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,7 +213,7 @@ footer {
   margin: 0.5em 0;
   font-size: 3em;
 }
-.button:hover{
+.button-index:hover{
   background-color: #BCBCBC
 }
 .button-link:link, .button-link:visited{
@@ -238,7 +239,6 @@ footer {
   height: auto;
   display:flex;
   flex-direction: column;
-  margin: 90px;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -310,14 +310,18 @@ td {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  height: 17%;
+  width: 8%;
 }
 .warning-icon{
   position: absolute;
   top: 10px;
   left: 10px;
-  height: 20%;
+  width: 9%;
 }
+.warning-text{
+  display: none;
+}
+
 .icon-flex{
   display:flex;
 }
@@ -416,6 +420,25 @@ form input {
 .detail-heading{
   color: white;
 }
+.arrow-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.arrow{
+  display: inline-block;
+  font-size: 25px;
+  text-decoration: none;
+  color: #25292E;
+}
+.arrow:hover{
+  color: #F2781C;
+}
+.arrow:active{
+  color: #ff9b54;
+}
+
 
 @media only screen and (max-width: 400px) {}
 
@@ -458,9 +481,6 @@ form input {
   }
   .box-label{
     display: block;
-  }
-  .log-container-row{
-    height: 110px;
   }
   .menu {
     width: 550px;
@@ -544,5 +564,26 @@ form input {
   }
   .styled-select select{
     height: 100px;
+  }
+
+  .warning-text{
+    opacity: 0;
+    color: #E69D3B;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    top: 10px;
+    height: 20%;
+    left: 45px;
+    transition: opacity 0.1s ease;
+  }
+  .warning-icon:hover + .warning-text{
+    opacity: 1;
+  }
+  .log-container-row{
+    min-height: 110px;
+  }
+  .arrow-container{
+    width: 961px;
   }
 }

@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/', views.about, name = 'about'),
     url(r'^pong/', views.game, name = 'game'),
-
+    url(r'^martor/', include('martor.urls')),
 ]

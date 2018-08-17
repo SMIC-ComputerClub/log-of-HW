@@ -25,12 +25,14 @@
                   {{course.course_name}}
                   {% if course.get_latest_hw.was_published_recently == False  %}
                     {% load static %}<img src="{% static 'log/images/warning.svg' %}" class="warning-icon" title="Not updated today"/>
+                    <div class="warning-text">Not updated today</div>
                   {% endif %}
                   <a href="{% url 'log:detail' course.id %}">
                     {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon" title="Edit"/></a>
                 </div>
                 <div class="hw-box" onclick="strikeThrough(this.id)" id="{{course.id}}">
-                  {{course.get_latest_hw.hw_text}}
+                  {% load martortags %}
+                  {{course.get_latest_hw.hw_text|safe_markdown}}
                   <div class="date">{{course.get_latest_hw.get_pub_date}}</div>
                 </div>
               </div>
@@ -43,7 +45,7 @@
                 {% load static %}<img src="{% static 'log/images/edit-icon.svg' %}" class="edit-icon" title="Edit"/></a>
             </div>
             <div class="hw-box" onclick="strikeThrough(this.id)" id="{{course.id}}">
-              {{user.reminder.hw_text}}
+              {{user.reminder.hw_text|safe_markdown}}
             </div>
           </div>
         </div>
@@ -80,11 +82,11 @@
       <div class="index-button-container">
         <div class="home-boxes">
           <p class="box-label">Already have an account? </p>
-          <a href="{% url 'login' %}" class="button-link"><div class="button"> Login </div></a>
+          <a href="{% url 'login' %}" class="button-link"><div class="button-index"> Login </div></a>
         </div>
         <div class="home-boxes">
           <p class="box-label"> Don't have an account? </p>
-          <a href="{% url 'signup' %}" class="button-link"><div class="button"> Sign up </div></a>
+          <a href="{% url 'signup' %}" class="button-link"><div class="button-index"> Sign up </div></a>
         </div>
       </div>
       <div class="log-container index-description-text" style="margin-top: 30px;">

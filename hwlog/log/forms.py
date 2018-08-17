@@ -1,5 +1,6 @@
 from django import forms
 from .models import Course
+#from martor.fields import MartorFormField
 
 class ClassEnrollForm(forms.Form): #form to edit course settings
     courseList = Course.objects.order_by('course_name')

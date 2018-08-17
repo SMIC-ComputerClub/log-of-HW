@@ -5,7 +5,7 @@
   <div class="content-container">
     <div class="lgn-container detail-container">
       {% if user.is_authenticated %}
-        <h1 class="content-heading detail-heading">{{course.course_name}}</h2>
+        <h1 class="content-heading detail-heading">{{course_name}}</h2>
         <form method="post">
           {% csrf_token %}
           <div class="form-row">
@@ -21,10 +21,11 @@
     <h2 style="margin-bottom: 15px"> Previous Homeworks </h2>
     {% for homework in latest_hw_list %}
     <div class="extra-hw-box">
-      <p>{{homework.hw_text}}</p>
+      {% load martortags %}
+      {{homework.hw_text|safe_markdown}}
       <div class="date">{{homework.poster}} - {{homework.get_pub_date}}</div>
     </div>
     {% endfor %}
-    <a href="{% url 'log:history' course_id=course.id %}">See full history</a>
+    <a href="{% url 'log:history' course_id=course_id page=1 %}" class="history-link">See full history</a>
   </div>
 {% endblock %}

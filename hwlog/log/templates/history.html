@@ -3,12 +3,28 @@
 
 {% block content %}
   <div class="content-container">
-    <h2 style="margin-bottom: 15px"> {{course.course_name}} </h2>
-    {% for homework in latest_hw_list %}
+    <h2 style="margin-bottom: 15px"> {{course_name}} </h2>
+    {% for homework in hw_list %}
     <div class="extra-hw-box">
-      <p>{{homework.hw_text}}</p>
+
+      <p>
+      	{% load martortags %}
+      	{{homework.hw_text|safe_markdown}}
+      </p>
       <div class="date">{{homework.poster}} - {{homework.get_pub_date}}</div>
     </div>
     {% endfor %}
+    <div class="arrow-container">
+    	{% if prev %}
+    	<a class="arrow" href = "{% url 'log:history' course_id=course_id page=prev_page %}"> < Prev </a>
+    	{% else %}
+    	<div></div>
+    	{% endif %}
+    	{% if next %}
+    	<a class="arrow" href = "{% url 'log:history' course_id=course_id page=next_page %}"> Next > </a>
+    	{% else %}
+    	<div></div>
+    	{% endif %}
+    </div>
   </div>
 {% endblock %}

@@ -12,6 +12,7 @@ from .models import Course, Homework, Reminder
 from .forms import ClassEnrollForm, ChangeHWForm
 from django.utils import timezone
 from datetime import datetime, timedelta
+import math
 
 def about(request):
     return render(request,'about.html')
@@ -84,17 +85,46 @@ def detail(request, course_id): #page to edit hw
             course.homework_set.create(hw_text=form.cleaned_data['hw_text'], pub_date=timezone.now(), poster=request.user)
             return redirect('home')
     else:
-        form = ChangeHWForm({'hw':course.get_latest_hw})
+        form = ChangeHWForm()
 
     one_week_ago = timezone.now()-timedelta(days=7) #create date object to filter homework posted within a week
+    hw_list = course.homework_set.filter(pub_date__gte=one_week_ago)
+    length = len(hw_list)-1
+    if length > 10: end = length-10
+    else: end = None #using 0 doesnt work, since it would exclude the last element
     return render(request, 'detail.html', {'form': form,
-                                            'course': course,
-                                            'latest_hw_list': reversed(course.homework_set.filter(pub_date__gte=one_week_ago))})
+                                            'course_name': course.course_name,
+                                            'course_id': course.id,
+                                            'latest_hw_list': hw_list[length:end:-1]})
 
-def history(request, course_id):
+def history(request, course_id, page): #page to view full history
     course = get_object_or_404(Course, pk=course_id)
-    return render(request, 'history.html', {'course': course,
-                                            'latest_hw_list': reversed(course.homework_set.all())})
+    full_list = course.homework_set.all()
+    length = len(full_list)
+    limit = 30 # how many items per page / doesnt work after 40?
+    last_page = math.ceil(length/limit)
+    page = int(page)
+    if page > last_page:
+        return redirect('log:history',course_id=course_id, page=last_page)  
+    if (length < limit):
+        hw_list = full_list[::-1]
+    elif (len(full_list)-page*limit-1 < limit):
+        hw_list = full_list[len(full_list)-(page-1)*limit-1:0:-1]
+    else:
+        hw_list = full_list[len(full_list)-(page-1)*limit-1:len(full_list)-page*limit-1:-1]
+    prev_bool = True
+    next_bool = True
+    if page==1: prev_bool = False
+    if page==last_page: next_bool = False
+    return render(request, 'history.html', {'course_name': course.course_name,
+                                            'course_id': course.id,
+                                            'prev': prev_bool,
+                                            'next': next_bool,
+                                            'prev_page':page-1,
+                                            'next_page':page+1,
+                                            'hw_list': hw_list})
+
+
 def reminder(request): #page to edit remainder
     if request.method == 'POST':
         form = ChangeHWForm(request.POST)
