@@ -14,4 +14,4 @@ class ClassEnrollForm(forms.Form): #form to edit course settings
     course_7 = forms.ModelChoiceField(queryset=courseList,empty_label=None)
 
 class ChangeHWForm(forms.Form): #form to edit hw of a class
-    hw_text = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '180'}))
+    hw_text = forms.CharField(widget=forms.Textarea(attrs={'maxlength': '300'}))

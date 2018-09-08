@@ -2,6 +2,12 @@
 {% block title %}Edit HW{% endblock %}
 
 {% block content %}
+  <script>
+    function copyLatest(){
+      textarea = document.getElementById("txtarea");
+      textarea.value = "{{ latest_hw }}"
+    }
+  </script>
   <div class="content-container">
     <div class="lgn-container detail-container">
       {% if user.is_authenticated %}
@@ -10,8 +16,12 @@
           {% csrf_token %}
           <div class="form-row">
             {% load widget_tweaks %}
-            {% render_field form.hw_text class+="hw-textarea" %}
+            {% render_field form.hw_text class+="hw-textarea" id="txtarea" %}
+            <div class="js-btn history-link" onclick="copyLatest()">
+              Copy from latest
+            </div>
           </div>
+          
           <button type="submit" class="btn orange">Save changes</button>
         </form>
       {% else %}

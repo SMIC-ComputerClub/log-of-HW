@@ -5,8 +5,11 @@ from .models import Course, Homework, Reminder
 #from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django import forms
+from django.db.models import TextField
 from django.contrib.admin.models import LogEntry
+
 from django.contrib.admin.widgets import FilteredSelectMultiple
+from martor.widgets import AdminMartorWidget
 
 
 
@@ -16,6 +19,9 @@ class HomeworkInline(admin.TabularInline):
     extra = 1
 
 class CourseAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        TextField: {'widget': AdminMartorWidget},
+    }
     fieldsets = [
         (None,               {'fields': ['course_name','students']}),
     ]
@@ -40,11 +46,17 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 class HomeworkAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        TextField: {'widget': AdminMartorWidget},
+    }
     fieldsets = [
         (None,               {'fields': ['hw_text','course','poster','pub_date']}),
     ]
 
 class ReminderAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        TextField: {'widget': AdminMartorWidget},
+    }
     fieldsets = [
         (None,               {'fields': ['hw_text','user']}),
     ]

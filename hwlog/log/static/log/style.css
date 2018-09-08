@@ -290,10 +290,16 @@ td {
 }
 .form-row {
   margin-bottom: 1.3em;
+  position: relative;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+}
+.js-btn{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
 }
 .form-label {
   margin-right: 1em;

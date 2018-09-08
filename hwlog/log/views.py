@@ -92,10 +92,14 @@ def detail(request, course_id): #page to edit hw
     length = len(hw_list)
     if length > 10: end = length-11
     else: end = None #using 0 doesnt work, since it would exclude the last element
+    latest_hw_list = hw_list[length:end:-1]
+    if len(course.homework_set.all())-1 >= 0: latest_hw = course.homework_set.all()[len(course.homework_set.all())-1]
+    else: latest_hw = ""
     return render(request, 'detail.html', {'form': form,
                                             'course_name': course.course_name,
                                             'course_id': course.id,
-                                            'latest_hw_list': hw_list[length:end:-1]})
+                                            'latest_hw_list': latest_hw_list,
+                                            'latest_hw': latest_hw})
 
 def history(request, course_id, page): #page to view full history
     course = get_object_or_404(Course, pk=course_id)
@@ -108,10 +112,10 @@ def history(request, course_id, page): #page to view full history
         return redirect('log:history',course_id=course_id, page=last_page)  
     if (length < limit):
         hw_list = full_list[::-1]
-    elif (len(full_list)-page*limit-1 < limit):
-        hw_list = full_list[len(full_list)-(page-1)*limit-1:0:-1]
+    elif (length-page*limit-1 < limit):
+        hw_list = full_list[length-(page-1)*limit-1:0:-1] 
     else:
-        hw_list = full_list[len(full_list)-(page-1)*limit-1:len(full_list)-page*limit-1:-1]
+        hw_list = full_list[length-(page-1)*limit-1:length-page*limit-1:-1]
     prev_bool = True
     next_bool = True
     if page==1: prev_bool = False
