@@ -41,6 +41,12 @@ class Homework(models.Model):
 
     def get_pub_date(self):
         return self.pub_date
+
+    def get_poster(self):
+        return self.poster
+
+    def get_course(self):
+        return self.course
 #class Period(models.Model):
 #    time = models.IntegerField()
 #    hw = models.TextField(max_length=500, blank=True)
